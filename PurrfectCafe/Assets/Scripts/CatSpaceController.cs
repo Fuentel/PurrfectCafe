@@ -15,6 +15,7 @@ public class CatSpaceController : MonoBehaviour
     // Update is called once per frame
     public void GenerateHairballs()
     {
+        Debug.Log("hairball");
         resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick);
         if (catPosition.catSupp1 != null)
         {

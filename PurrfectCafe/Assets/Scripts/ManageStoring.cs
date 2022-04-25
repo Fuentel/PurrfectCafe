@@ -11,13 +11,17 @@ public class ManageStoring : MonoBehaviour
     public GameObject ClickPanel;
     public Button Cafe;
     public Button Nursery;
-    public bool clickedOnChange;
+    private bool clickedOnChange;
     public ManageCatPosition manageCats;
     // Start is called before the first frame update
     void Start()
     {
         ClickPanel.SetActive(false);
         clickedOnChange = false;
+        for (int i = 0; i < 8; i++)
+        {
+            catSlots[i] = null;
+        }
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class ManageStoring : MonoBehaviour
     {
         
     }
-    public void UpdateCatsPosition()
+    private void UpdateCatsPosition()
     {
         manageCats.ChangeMainCat(catSlots[0]);
         if (catSlots[1]!=null) 
@@ -38,11 +42,11 @@ public class ManageStoring : MonoBehaviour
         }
         if (catSlots[3] != null)
         {
-            manageCats.ChangeSuppCat2(catSlots[3]);
+            manageCats.ChangeSuppCat3(catSlots[3]);
         }
         if (catSlots[4] != null)
         {
-            manageCats.ChangeSuppCat2(catSlots[4]);
+            manageCats.ChangeSuppCat4(catSlots[4]);
         }
 
 
@@ -58,7 +62,7 @@ public class ManageStoring : MonoBehaviour
         {
             manageCats.ChangeCoinCat3(catSlots[7]);
         }
-        for (int i=0; i < catSlots.Length-1; i++)
+        for (int i=8; i < catSlots.Length-1; i++)
         {
             if (catSlots[i+1] != null && catSlots[i]==null)
             {
@@ -71,6 +75,7 @@ public class ManageStoring : MonoBehaviour
     {
         catSlots[actualCat] = null;
         UpdateCatsPosition();
+        ClickPanel.SetActive(false);
     }
     public void ClickOnCancel()
     {
@@ -84,183 +89,52 @@ public class ManageStoring : MonoBehaviour
     }
     public void ClickOnCatSlot1()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[1 * actualStorageScreen-1];
-            catSlots[1 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 1 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(1);
     }
     public void ClickOnCatSlot2()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[2 * actualStorageScreen-1];
-            catSlots[2 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 2 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(2);
     }
     public void ClickOnCatSlot3()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[3 * actualStorageScreen-1];
-            catSlots[3 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 3 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(3);
     }
     public void ClickOnCatSlot4()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[4 * actualStorageScreen-1];
-            catSlots[4 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 4 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(4);
     }
     public void ClickOnCatSlot5()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[5 * actualStorageScreen-1];
-            catSlots[5 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 5 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(5);
     }
     public void ClickOnCatSlot6()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[6 * actualStorageScreen-1];
-            catSlots[6 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 6 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(6);
     }
     public void ClickOnCatSlot7()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[7 * actualStorageScreen-1];
-            catSlots[7 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 7 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(7);
     }
     public void ClickOnCatSlot8()
     {
-        if (clickedOnChange)
-        {
-            GameObject aux;
-            aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[8 * actualStorageScreen-1];
-            catSlots[8 * actualStorageScreen] = catSlots[actualCat];
-            //ChangeImages(); //por hacer
-            clickedOnChange = false;
-            UpdateCatsPosition();
-        }
-        else
-        {
-
-            ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
-            actualCat = 8 * actualStorageScreen-1;
-        }
+        AllButtonsFunction(8);
     }
     public void ClickOnCatSlot9()
+    {
+        AllButtonsFunction(9);    
+    }
+    private void AllButtonsFunction(int index)
     {
         if (clickedOnChange)
         {
             GameObject aux;
             aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[9 * actualStorageScreen-1];
-            catSlots[9 * actualStorageScreen] = catSlots[actualCat];
+            catSlots[actualCat] = catSlots[index * actualStorageScreen - 1];
+            catSlots[index * actualStorageScreen - 1] = aux;
             //ChangeImages(); //por hacer
             clickedOnChange = false;
             UpdateCatsPosition();
+            ClickPanel.SetActive(false);
         }
         else
         {
@@ -268,9 +142,8 @@ public class ManageStoring : MonoBehaviour
             ClickPanel.SetActive(true);
             Nursery.gameObject.SetActive(false);
             Cafe.gameObject.SetActive(false);
-            actualCat = 9 * actualStorageScreen-1;
+            actualCat = index * actualStorageScreen - 1;
         }
     }
-    
 
 }
