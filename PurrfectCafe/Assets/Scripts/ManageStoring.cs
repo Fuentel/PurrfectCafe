@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class ManageStoring : MonoBehaviour
 {
     public GameObject[] catSlots=new GameObject[36];//= new CatCaracteristics[9* numerOfScreens]
+    public Transform[] buttonsTransform = new Transform[9];
     private int actualStorageScreen = 1;
-    private int actualCat = 0;
+    public int actualCat = 0;
     public GameObject ClickPanel;
     public Button Cafe;
     public Button Nursery;
-    private bool clickedOnChange;
+    public bool clickedOnChange;
     public ManageCatPosition manageCats;
     // Start is called before the first frame update
     void Start()
@@ -70,6 +71,47 @@ public class ManageStoring : MonoBehaviour
                 catSlots[i+1] = null;
             }
         }
+        //update game position
+        for (int i = 0; i < catSlots.Length; i++)
+        {
+            if (catSlots[i] != null)
+            {
+
+                switch (i % 9)
+                {
+                    case 0:
+                        catSlots[i].transform.position = buttonsTransform[0].position;
+                        break;
+                    case 1:
+                        catSlots[i].transform.position = buttonsTransform[1].position;
+                        break;
+                    case 2:
+                        catSlots[i].transform.position = buttonsTransform[2].position;
+                        break;
+                    case 3:
+                        catSlots[i].transform.position = buttonsTransform[3].position;
+                        break;
+                    case 4:
+                        catSlots[i].transform.position = buttonsTransform[4].position;
+                        break;
+                    case 5:
+                        catSlots[i].transform.position = buttonsTransform[5].position;
+                        break;
+                    case 6:
+                        catSlots[i].transform.position = buttonsTransform[6].position;
+                        break;
+                    case 7:
+                        catSlots[i].transform.position = buttonsTransform[7].position;
+                        break;
+                    case 8:
+                        catSlots[i].transform.position = buttonsTransform[8].position;
+                        break;
+                    default:
+                        break;
+
+                   }
+            }
+        }
     }
     public void ClickOnRelease()
     {
@@ -79,6 +121,7 @@ public class ManageStoring : MonoBehaviour
     }
     public void ClickOnCancel()
     {
+        clickedOnChange = false;
         ClickPanel.SetActive(false);
         Nursery.gameObject.SetActive(true);
         Cafe.gameObject.SetActive(true);
@@ -131,7 +174,6 @@ public class ManageStoring : MonoBehaviour
             aux = catSlots[actualCat];
             catSlots[actualCat] = catSlots[index * actualStorageScreen - 1];
             catSlots[index * actualStorageScreen - 1] = aux;
-            //ChangeImages(); //por hacer
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
