@@ -113,6 +113,17 @@ public class ManageStoring : MonoBehaviour
             }
         }
     }
+    public void AddACat(GameObject catToAdd)
+    {
+        for (int i = 0; i < catSlots.Length; i++)
+        {
+            if (catSlots[i] == null)
+            {
+                catSlots[i] = catToAdd;
+                break;
+            }
+        }
+    }
     public void ClickOnRelease()
     {
         catSlots[actualCat] = null;

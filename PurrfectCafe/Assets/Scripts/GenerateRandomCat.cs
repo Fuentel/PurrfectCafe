@@ -9,7 +9,7 @@ public class GenerateRandomCat : MonoBehaviour
     public GameObject EuropeanOrangePrefab;
     public GameObject SiamesPrefab;
     public GameObject BengalPrefab;
-    public ManageCatPosition catPosition;
+    public ManageStoring catPosition;
 
     private GameObject CatToPass;
     private int typeOfCat = 0;
@@ -23,28 +23,33 @@ public class GenerateRandomCat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SelectCatType();
-            CreateCat();
-            CatToPass.transform.position = Vector3.zero;
-            catPosition.ChangeMainCat(CatToPass);
-        }
+        
     }
-    void SelectCatType()
+    public void GenerateAnspecificCat(int probStandard, int probShopper, int probHairy)
     {
-        float randomNum = Random.Range(0,100);
-        if (randomNum > 50)
+        SelectCatType(probStandard, probShopper, probHairy);
+        CreateCat();
+        catPosition.AddACat(CatToPass);
+
+    }
+    private void SelectCatType(int probStandard,int probShopper, int probHairy)
+    {
+        int randomNum = Random.Range(0,100);
+        if (randomNum < probStandard)
         {
             typeOfCat = 0;
-        }else{
-
-            typeOfCat = 1;
-
         }
-
+        else if (randomNum < probShopper+probStandard)
+        {
+            typeOfCat = 1;
+        }
+        else if(randomNum <= probShopper + probStandard+probHairy)
+        {
+            typeOfCat = 2;
+        }
+        
     }
-    void CreateCat()
+    private void CreateCat()
     {
         float ranNum = Random.Range(0, 100);
         int numCat;
@@ -93,19 +98,18 @@ public class GenerateRandomCat : MonoBehaviour
                 break;
         } 
     }
-    //ordenar los gatos de mayor a menor probabilidad
     int StandardCat(float rNum)
     {
         int numCat = 0;
-        if (SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning >= rNum)
+        if (rNum < SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
         {
             numCat = 0;
         }
-        else if (BlueRussianPrefab.GetComponent<CatCaracteristics>().probOfObtainning >= rNum)
+        else if (rNum < BlueRussianPrefab.GetComponent<CatCaracteristics>().probOfObtainning + SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
         {
             numCat = 1;
         }
-        else if(EuropeanOrangePrefab.GetComponent<CatCaracteristics>().probOfObtainning >= rNum)
+        else if(rNum <= EuropeanOrangePrefab.GetComponent<CatCaracteristics>().probOfObtainning + BlueRussianPrefab.GetComponent<CatCaracteristics>().probOfObtainning + SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
         {
             numCat = 2;
         }
@@ -115,7 +119,7 @@ public class GenerateRandomCat : MonoBehaviour
     int ShopperCat(float rNum)
     {
         int numCat = 0;
-        if (CottonCandyPrefab.GetComponent<CatCaracteristics>().probOfObtainning < rNum)
+        if (rNum < CottonCandyPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
         {
             numCat = 0;
         }
@@ -125,11 +129,12 @@ public class GenerateRandomCat : MonoBehaviour
     int HairyCat(float rNum)
     {
         int numCat = 0;
-        if (BengalPrefab.GetComponent<CatCaracteristics>().probOfObtainning < rNum)
+        if (rNum < BengalPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
         {
             numCat = 0;
         }
 
         return numCat;
     }
+
 }

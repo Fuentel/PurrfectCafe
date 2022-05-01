@@ -25,7 +25,6 @@ public class ManageCatPosition : MonoBehaviour
     {
         
     }
-
     public void ChangeMainCat(GameObject cat)
     {
         currentMainCat=cat;

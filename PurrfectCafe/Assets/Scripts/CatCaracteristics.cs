@@ -14,6 +14,7 @@ public class CatCaracteristics : MonoBehaviour
     public string TypeOfCat;
     public float probOfObtainning;//0 100
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,6 @@ public class CatCaracteristics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     public void ChangeScaleToNursery()
     {

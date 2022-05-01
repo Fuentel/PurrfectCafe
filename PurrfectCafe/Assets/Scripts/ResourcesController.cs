@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class ResourcesController : MonoBehaviour
 {
     public Text hairBallsText;
-    private int hairBallsNum;
+    public int hairBallsNum;
     public Text coinsText;
-    private int coinsNum;
+    public int coinsNum;
     public Text popularityText;
-    private int popularityNum;
+    public int popularityNum;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        hairBallsNum = 2000;
+        coinsNum = 2000;
     }
 
     // Update is called once per frame
