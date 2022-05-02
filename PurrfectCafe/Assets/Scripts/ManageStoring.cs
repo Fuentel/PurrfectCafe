@@ -7,6 +7,7 @@ public class ManageStoring : MonoBehaviour
 {
     public GameObject[] catSlots=new GameObject[36];//= new CatCaracteristics[9* numerOfScreens]
     public Transform[] buttonsTransform = new Transform[9];
+    public GameObject[] slotBoxes;
     private int actualStorageScreen = 1;
     public int actualCat = 0;
     public GameObject ClickPanel;
@@ -19,10 +20,15 @@ public class ManageStoring : MonoBehaviour
     {
         ClickPanel.SetActive(false);
         clickedOnChange = false;
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 36; i++)
         {
             catSlots[i] = null;
         }
+        for (int i = 0; i < slotBoxes.Length; i++)
+        {
+            slotBoxes[i].SetActive(false);
+        }
+        slotBoxes[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -62,6 +68,20 @@ public class ManageStoring : MonoBehaviour
         if (catSlots[7] != null)
         {
             manageCats.ChangeCoinCat3(catSlots[7]);
+        }
+
+        if (catSlots[0] == null)
+        {
+            for (int i = 1; i < catSlots.Length - 1; i++)
+            {
+
+                if (catSlots[i] != null)
+                {
+                    catSlots[0] = catSlots[i];
+                    catSlots[i] = null;
+                    break;
+                }
+            }
         }
         for (int i=8; i < catSlots.Length-1; i++)
         {
@@ -119,16 +139,39 @@ public class ManageStoring : MonoBehaviour
         {
             if (catSlots[i] == null)
             {
+                int slotBoxToParent = 0;
+                if (i<9)
+                {
+                    slotBoxToParent = 0;
+                }
+                else if(i<18)
+                {
+                    slotBoxToParent = 1;
+                }
+                else if(i<27)
+                {
+                    slotBoxToParent = 2;
+                }
+                else if(i<36)
+                {
+                    slotBoxToParent = 3;
+                }
+                catToAdd.transform.parent = slotBoxes[slotBoxToParent].transform;
                 catSlots[i] = catToAdd;
+
                 break;
             }
         }
+        UpdateCatsPosition();
     }
     public void ClickOnRelease()
     {
+        Destroy(catSlots[actualCat]);
         catSlots[actualCat] = null;
         UpdateCatsPosition();
         ClickPanel.SetActive(false);
+        Nursery.gameObject.SetActive(true);
+        Cafe.gameObject.SetActive(true);
     }
     public void ClickOnCancel()
     {
@@ -188,6 +231,8 @@ public class ManageStoring : MonoBehaviour
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
+            Nursery.gameObject.SetActive(true);
+            Cafe.gameObject.SetActive(true);
         }
         else
         {
@@ -198,5 +243,29 @@ public class ManageStoring : MonoBehaviour
             actualCat = index * actualStorageScreen - 1;
         }
     }
-
+    public void ChangeSlotsIncrease()
+    {
+        actualStorageScreen++;
+        slotBoxes[actualStorageScreen-1].SetActive(true);
+        slotBoxes[actualStorageScreen-2].SetActive(false);
+    }
+    public void ChangeSlotsDecrease()
+    {
+        actualStorageScreen--;
+        slotBoxes[actualStorageScreen - 1].SetActive(true);
+        slotBoxes[actualStorageScreen + 1].SetActive(false);
+    }
+    public bool isFull()
+    {
+        bool returned = true;
+        for (int i = 0; i < 36; i++)
+        {
+            if (catSlots[i]==null)
+            {
+                returned = false;
+                break;
+            }
+        }
+        return returned;
+    }
 }

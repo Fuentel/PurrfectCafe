@@ -10,6 +10,7 @@ public class GenerateRandomCat : MonoBehaviour
     public GameObject SiamesPrefab;
     public GameObject BengalPrefab;
     public ManageStoring catPosition;
+    public GameObject GeneralCanvasObj;
 
     private GameObject CatToPass;
     private int typeOfCat = 0;
@@ -25,25 +26,25 @@ public class GenerateRandomCat : MonoBehaviour
     {
         
     }
-    public void GenerateAnspecificCat(int probStandard, int probShopper, int probHairy)
+    public void GenerateAnspecificCat(int probSpecial, int probShopper, int probHairy)
     {
-        SelectCatType(probStandard, probShopper, probHairy);
+        SelectCatType(probSpecial, probShopper, probHairy);
         CreateCat();
         catPosition.AddACat(CatToPass);
 
     }
-    private void SelectCatType(int probStandard,int probShopper, int probHairy)
+    private void SelectCatType(int probSpecial,int probShopper, int probHairy)
     {
         int randomNum = Random.Range(0,100);
-        if (randomNum < probStandard)
+        if (randomNum < probSpecial)
         {
             typeOfCat = 0;
         }
-        else if (randomNum < probShopper+probStandard)
+        else if (randomNum < probShopper+probSpecial)
         {
             typeOfCat = 1;
         }
-        else if(randomNum <= probShopper + probStandard+probHairy)
+        else if(randomNum <= probShopper + probSpecial+probHairy)
         {
             typeOfCat = 2;
         }
@@ -56,17 +57,17 @@ public class GenerateRandomCat : MonoBehaviour
         switch (typeOfCat)
         {
             case 0:
-                numCat = StandardCat(ranNum);
+                numCat = SpecialCat(ranNum);
                 switch (numCat)
                 {
                     case 0:
-                        CatToPass = Object.Instantiate(SiamesPrefab, this.transform.position, Quaternion.identity);
+                        CatToPass = Object.Instantiate(SiamesPrefab, GeneralCanvasObj.transform);
                         break;
                     case 1:
-                        CatToPass = Object.Instantiate(BlueRussianPrefab, this.transform.position, Quaternion.identity);
+                        CatToPass = Object.Instantiate(BlueRussianPrefab, GeneralCanvasObj.transform);
                         break;
                     case 2:
-                        CatToPass = Object.Instantiate(EuropeanOrangePrefab, this.transform.position, Quaternion.identity);
+                        CatToPass = Object.Instantiate(EuropeanOrangePrefab, GeneralCanvasObj.transform);
                         break;
                     default:
                         break;
@@ -77,7 +78,7 @@ public class GenerateRandomCat : MonoBehaviour
                 switch (numCat)
                 {
                     case 0:
-                        CatToPass = Object.Instantiate(CottonCandyPrefab, this.transform.position, Quaternion.identity);
+                        CatToPass = Object.Instantiate(CottonCandyPrefab, GeneralCanvasObj.transform);
                         break;
                     default:
                         break;
@@ -88,7 +89,7 @@ public class GenerateRandomCat : MonoBehaviour
                 switch (numCat)
                 {
                     case 0:
-                        CatToPass = Object.Instantiate(BengalPrefab, this.transform.position, Quaternion.identity);
+                        CatToPass = Object.Instantiate(BengalPrefab, GeneralCanvasObj.transform);
                         break;
                     default:
                         break;
@@ -98,7 +99,7 @@ public class GenerateRandomCat : MonoBehaviour
                 break;
         } 
     }
-    int StandardCat(float rNum)
+    int SpecialCat(float rNum)
     {
         int numCat = 0;
         if (rNum < SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)

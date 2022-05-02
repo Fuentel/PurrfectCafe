@@ -6,12 +6,18 @@ public class CatSpaceController : MonoBehaviour
 {
     public ResourcesController resources;
     public ManageCatPosition catPosition;
+    public ManageStoring storing;
+    public GameObject[] dupCats;
+    public GameObject[] catSpaces;
     // Start is called before the first frame update
     void Start()
     {
         
     }
+    void Update()
+    {
 
+    }
     // Update is called once per frame
     public void GenerateHairballs()
     {
@@ -35,5 +41,22 @@ public class CatSpaceController : MonoBehaviour
             resources.changeHairBalls(catPosition.catSupp4.GetComponent<CatCaracteristics>().HairBallPerClickSupp);
 
         }
+    }
+    public void VisualizeCats()
+    {
+        for(int i = 0; i <= 4; i++)
+        {
+            if (storing.catSlots[i] != null)
+            {
+                dupCats[i] = Object.Instantiate(storing.catSlots[i], catSpaces[i].transform);
+                dupCats[i].transform.position = catSpaces[i].transform.position;
+                if (i == 0)
+                {
+                    dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToNursery();
+                }
+                dupCats[i].SetActive(true);
+            }
+        }
+
     }
 }
