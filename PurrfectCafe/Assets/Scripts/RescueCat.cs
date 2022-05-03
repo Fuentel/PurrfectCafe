@@ -70,8 +70,9 @@ public class RescueCat : MonoBehaviour
     }
     public void RescueButton()
     {
-        if (resources.hairBallsNum < hairBalls && resources.coinsNum < coins)
+        if (resources.hairBallsNum < hairBalls || resources.coinsNum < coins)
         {
+            Debug.Log("a");
             NotEnough.SetActive(true);
         }
         else if (storing.isFull())
@@ -80,6 +81,8 @@ public class RescueCat : MonoBehaviour
         }
         else
         {
+            resources.hairBallsNum -= hairBalls;
+            resources.coinsNum -= coins;
             Vector3Int a = CalculateProbability();
             catgenerator.GenerateAnspecificCat(a.x,a.y,a.z);
 

@@ -22,7 +22,10 @@ public class CatSpaceController : MonoBehaviour
     public void GenerateHairballs()
     {
         Debug.Log("hairball");
-        resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick);
+        if (catPosition.catSupp1 != null) 
+        { 
+            resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick);
+        }
         if (catPosition.catSupp1 != null)
         {
             resources.changeHairBalls(catPosition.catSupp1.GetComponent<CatCaracteristics>().HairBallPerClickSupp);
@@ -54,7 +57,15 @@ public class CatSpaceController : MonoBehaviour
                 {
                     dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToNursery();
                 }
+                else
+                {
+                    dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+                }
                 dupCats[i].SetActive(true);
+            }
+            else
+            {
+                dupCats[i] = null;
             }
         }
 
