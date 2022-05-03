@@ -8,6 +8,9 @@ public class RescueCat : MonoBehaviour
     private int hairBalls = 50;
     private int coins = 50;
     private float timePut = 30.0f;
+    public float timeToRescue1;
+    Vector3Int probabilityCatRescue1;
+    public bool rescuing1 = false;
     public Text hairBallsText;
     public Text coinsText;
     public Text timeText;
@@ -16,16 +19,72 @@ public class RescueCat : MonoBehaviour
     public ResourcesController resources;
     public GameObject NotEnough;
     public GameObject isFull;
+    public GameObject AlrRescueButton1;
+    public GameObject NewCatArrived;
+    public GameObject Product;
+    public GameObject catDuppedToShow;
+    public int lastCatadded = -1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        AlrRescueButton1.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateText();
+        if (timeToRescue1 > 0.0f && rescuing1)
+        {
+            timeToRescue1 -= Time.deltaTime;
+        }
+        else if(rescuing1 && timeToRescue1 < 0.0f)
+        {
+            AlrRescueButton1.SetActive(true); ;
+            timeToRescue1 = 0.0f;
+        }
+    }
+    public void AlreadyRescueButton1()
+    {
+        lastCatadded=catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
+        AlrRescueButton1.SetActive(false);
+        NewCatArrived.SetActive(true);
+        catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], NewCatArrived.transform); ;
+        catDuppedToShow.transform.parent = NewCatArrived.transform;
+        catDuppedToShow.transform.position = Product.transform.position;
+        catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+    }
+    public void DeleteCatAdded()
+    {
+        if (lastCatadded != -1)
+        {
+            storing.ReleaseACatOutsideThisScreen(lastCatadded);
+            //anuncio
+            if (rescuing1)
+            {
+                Destroy(catDuppedToShow);
+                catDuppedToShow = null;
+                lastCatadded = catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
+                catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], NewCatArrived.transform);
+                catDuppedToShow.transform.parent = NewCatArrived.transform;
+                catDuppedToShow.transform.position = Product.transform.position;
+                catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+            }
+        }
+
+    }
+    public void ContinueWithThisCat()
+    {
+        rescuing1 = false;
+        NewCatArrived.SetActive(false);
+        lastCatadded = -1;
+    }
+    public void ChangeRecueTimeOutsideScreen(float timepased)
+    {
+        if (rescuing1)
+        {
+            timeToRescue1 -= timepased;
+        }
     }
     public void IncreaseHairBalls()
     {
@@ -81,11 +140,21 @@ public class RescueCat : MonoBehaviour
         }
         else
         {
-            resources.hairBallsNum -= hairBalls;
-            resources.coinsNum -= coins;
-            Vector3Int a = CalculateProbability();
-            catgenerator.GenerateAnspecificCat(a.x,a.y,a.z);
-
+            GenerateProbability();
+            if (!rescuing1)
+            {
+                timeToRescue1 = timePut; //* 60;
+                rescuing1 = true;
+            }
+        }
+    }
+    public void GenerateProbability()
+    {
+        resources.hairBallsNum -= hairBalls;
+        resources.coinsNum -= coins;
+        if (!rescuing1)
+        {
+            probabilityCatRescue1 = CalculateProbability();
         }
     }
     Vector3Int CalculateProbability()

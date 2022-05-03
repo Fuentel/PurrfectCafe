@@ -171,8 +171,9 @@ public class ManageStoring : MonoBehaviour
             manageCats.ChangeCoinCat3(catSlots[7]);
         }
     }
-    public void AddACat(GameObject catToAdd)
+    public int AddACat(GameObject catToAdd)
     {
+        int position = 0;
         for (int i = 0; i < catSlots.Length; i++)
         {
             if (catSlots[i] == null)
@@ -196,11 +197,12 @@ public class ManageStoring : MonoBehaviour
                 }
                 catToAdd.transform.parent = slotBoxes[slotBoxToParent].transform;
                 catSlots[i] = catToAdd;
-
+                position = i;
                 break;
             }
         }
         UpdateCatsPosition();
+        return position;
     }
     public void ClickOnRelease()
     {
@@ -210,6 +212,12 @@ public class ManageStoring : MonoBehaviour
         ClickPanel.SetActive(false);
         Nursery.gameObject.SetActive(true);
         Cafe.gameObject.SetActive(true);
+    }
+    public void ReleaseACatOutsideThisScreen(int catPos)
+    {
+        Destroy(catSlots[catPos]);
+        catSlots[catPos] = null;
+        UpdateCatsPosition();
     }
     public void ClickOnCancel()
     {

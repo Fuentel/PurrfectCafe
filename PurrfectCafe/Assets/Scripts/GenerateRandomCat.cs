@@ -26,11 +26,13 @@ public class GenerateRandomCat : MonoBehaviour
     {
         
     }
-    public void GenerateAnspecificCat(int probSpecial, int probShopper, int probHairy)
+    public int GenerateAnspecificCat(int probSpecial, int probShopper, int probHairy)
     {
+        int position = 0;
         SelectCatType(probSpecial, probShopper, probHairy);
         CreateCat();
-        catPosition.AddACat(CatToPass);
+        position=catPosition.AddACat(CatToPass);
+        return position;
 
     }
     private void SelectCatType(int probSpecial,int probShopper, int probHairy)
