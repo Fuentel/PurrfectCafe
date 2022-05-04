@@ -49,6 +49,8 @@ public class RescueCat : MonoBehaviour
         lastCatadded=catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
         AlrRescueButton1.SetActive(false);
         NewCatArrived.SetActive(true);
+        Destroy(catDuppedToShow);
+        catDuppedToShow = null;
         catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], NewCatArrived.transform); ;
         catDuppedToShow.transform.parent = NewCatArrived.transform;
         catDuppedToShow.transform.position = Product.transform.position;
