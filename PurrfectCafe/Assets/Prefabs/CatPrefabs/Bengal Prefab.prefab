@@ -49,9 +49,13 @@ MonoBehaviour:
   HairBallPerClick: 15
   HairBallPerClickSupp: 0
   CoinsPerSecond: 2
+  Popularity: 4
   Abilitty: 1
   TypeOfCat: Hairy
   probOfObtainning: 20
+  Nursery: 0
+  Shop: 0
+  Storing: 0
 --- !u!1 &8566756649674079282
 GameObject:
   m_ObjectHideFlags: 0

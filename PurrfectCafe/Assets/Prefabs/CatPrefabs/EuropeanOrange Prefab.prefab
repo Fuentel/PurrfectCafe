@@ -131,6 +131,10 @@ MonoBehaviour:
   HairBallPerClick: 10
   HairBallPerClickSupp: 0
   CoinsPerSecond: 5
+  Popularity: 7
   Abilitty: 0
   TypeOfCat: Standard
   probOfObtainning: 40
+  Nursery: 0
+  Shop: 0
+  Storing: 0

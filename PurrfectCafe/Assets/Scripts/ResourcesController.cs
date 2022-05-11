@@ -22,13 +22,17 @@ public class ResourcesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hairBallsText.text = "HairBalls: " + hairBallsNum;
-        coinsText.text = "Coins: " + coinsNum;
-        popularityText.text = "Popularity: " + popularityNum;
+        hairBallsText.text =  hairBallsNum.ToString();
+        coinsText.text =  coinsNum.ToString();
+        popularityText.text = popularityNum.ToString();
     }
-    public void changeCoins(int sum)
+    public void changeCoins(float sum)
     {
-        coinsNum += sum;
+        if (sum < 1)
+        {
+            sum = 1;
+        }
+        coinsNum += (int)sum;
     }
     public void changeHairBalls(int sum)
     {

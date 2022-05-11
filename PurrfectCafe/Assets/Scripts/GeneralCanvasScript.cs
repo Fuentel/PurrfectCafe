@@ -12,7 +12,9 @@ public class GeneralCanvasScript : MonoBehaviour
     public GameObject Shop;
     public ManageStoring storingScript;
     public CatSpaceController catSpace;
+    public CafeController cafeController;
     public int actualGameScreen;
+    public float timeToGiveCoins;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class GeneralCanvasScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timeToGiveCoins--;
         if (Nursery.activeSelf)
         {
             for (int i = 0; i < storingScript.catSlots.Length; i++)
@@ -45,6 +48,10 @@ public class GeneralCanvasScript : MonoBehaviour
         else if (Shop.activeSelf)
         {
 
+        }
+        if (timeToGiveCoins < 0)
+        {
+            timeToGiveCoins=cafeController.GainsCoins();
         }
     }
     private void ChangeScreen()
@@ -105,6 +112,15 @@ public class GeneralCanvasScript : MonoBehaviour
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(true);
+            for (int i = 0; i < cafeController.dupCats.Length; i++)
+            {
+                if (cafeController.dupCats[i] != null)
+                {
+                    Destroy(cafeController.dupCats[i]);
+                    cafeController.dupCats[i] = null;
+                }
+            }
+            cafeController.VisualizeCats();
         }
     }
     public void ArrowRight()

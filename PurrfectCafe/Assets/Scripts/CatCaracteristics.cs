@@ -10,6 +10,7 @@ public class CatCaracteristics : MonoBehaviour
     public int HairBallPerClick;
     public int HairBallPerClickSupp;
     public int CoinsPerSecond;
+    public int Popularity;
     public bool Abilitty;
     public string TypeOfCat;
     public float probOfObtainning;//0 100

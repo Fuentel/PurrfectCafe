@@ -131,6 +131,7 @@ MonoBehaviour:
   HairBallPerClick: 5
   HairBallPerClickSupp: 0
   CoinsPerSecond: 10
+  Popularity: 5
   Abilitty: 0
   TypeOfCat: Standard
   probOfObtainning: 40
