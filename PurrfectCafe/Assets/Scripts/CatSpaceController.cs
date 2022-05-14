@@ -22,8 +22,9 @@ public class CatSpaceController : MonoBehaviour
     public void GenerateHairballs()
     {
         Debug.Log("hairball");
-        if (catPosition.catSupp1 != null) 
-        { 
+        if (catPosition.currentMainCat != null) 
+        {
+            Debug.Log("a");
             resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick);
         }
         if (catPosition.catSupp1 != null)

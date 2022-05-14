@@ -36,6 +36,10 @@ public class ResourcesController : MonoBehaviour
     }
     public void changeHairBalls(int sum)
     {
+        if (sum < 1)
+        {
+            sum = 1;
+        }
         hairBallsNum += sum;
     }
     public void changePupularity(int sum)
