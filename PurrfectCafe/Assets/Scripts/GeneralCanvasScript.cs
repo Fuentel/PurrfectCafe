@@ -15,10 +15,12 @@ public class GeneralCanvasScript : MonoBehaviour
     public CafeController cafeController;
     public int actualGameScreen;
     public float timeToGiveCoins;
+    private AudioManager audioM;
     // Start is called before the first frame update
     void Start()
     {
         actualGameScreen = 0;
+        audioM = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -127,10 +129,12 @@ public class GeneralCanvasScript : MonoBehaviour
     {
         actualGameScreen++;
         ChangeScreen();
+        audioM.Play("Click");
     }
     public void ArrowLeft()
     {
         actualGameScreen--;
         ChangeScreen();
+        audioM.Play("Click");
     }
 }

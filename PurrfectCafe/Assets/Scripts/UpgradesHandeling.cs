@@ -54,6 +54,7 @@ public class UpgradesHandeling : MonoBehaviour
             if (BuyUpgrades[i] && !AlreadyDoneUpgrades[i])
             {
                 AlreadyDoneUpgrades[i] = true;
+               
                 if (i < 3)
                 {
                     UpgradeMoreHairballsPerClickMain(0.05f + 0.05f * i);

@@ -18,6 +18,7 @@ public class ManageStoring : MonoBehaviour
     public bool clickedOnChange;
     public ManageCatPosition manageCats;
     public int currentSlots = 18;
+    private AudioManager audioM;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,8 @@ public class ManageStoring : MonoBehaviour
             slotBoxes[i].SetActive(false);
         }
         slotBoxes[0].SetActive(true);
+
+        audioM = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -66,11 +69,13 @@ public class ManageStoring : MonoBehaviour
     {
         actualStorageScreen++;
         CheckArrowsToActivate();
+        audioM.Play("Click");
     }
     public void ArrowLeft()
     {
         actualStorageScreen--;
         CheckArrowsToActivate();
+        audioM.Play("Click");
     }
     private void UpdateCatsPosition()
     {
@@ -213,12 +218,16 @@ public class ManageStoring : MonoBehaviour
         ClickPanel.SetActive(false);
         Nursery.gameObject.SetActive(true);
         Cafe.gameObject.SetActive(true);
+
+        audioM.Play("Click");
     }
     public void ReleaseACatOutsideThisScreen(int catPos)
     {
         Destroy(catSlots[catPos]);
         catSlots[catPos] = null;
         UpdateCatsPosition();
+
+        audioM.Play("Click");
     }
     public void ClickOnCancel()
     {
@@ -226,10 +235,13 @@ public class ManageStoring : MonoBehaviour
         ClickPanel.SetActive(false);
         Nursery.gameObject.SetActive(true);
         Cafe.gameObject.SetActive(true);
+
+        audioM.Play("Click");
     }
     public void ClickOnChange()
     {
         clickedOnChange = true;
+        audioM.Play("Click");
     }
     public void ClickOnCatSlot(int index)
     {
@@ -257,6 +269,7 @@ public class ManageStoring : MonoBehaviour
             actualCat = index + (9 * actualStorageScreen) - 1;
             Debug.Log("actualCar" + (index + (9 * actualStorageScreen) - 1));
         };
+        audioM.Play("Click");
     }
     public bool isFull()
     {

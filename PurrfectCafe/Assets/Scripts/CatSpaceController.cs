@@ -12,10 +12,11 @@ public class CatSpaceController : MonoBehaviour
     public float upgradeMultiplier = 1;
     public float upgradeMainMultiplier = 1;
     public float upgradeSuppMultiplier = 1;
+    private AudioManager audioM;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioM = FindObjectOfType<AudioManager>();
     }
     void Update()
     {
@@ -48,6 +49,7 @@ public class CatSpaceController : MonoBehaviour
             resources.changeHairBalls(catPosition.catSupp4.GetComponent<CatCaracteristics>().HairBallPerClickSupp * upgradeMultiplier * upgradeSuppMultiplier);
 
         }
+        ChooseMeowSound();
     }
     public void VisualizeCats()
     {
@@ -73,5 +75,27 @@ public class CatSpaceController : MonoBehaviour
             }
         }
 
+    }
+
+    public void ChooseMeowSound()
+    {
+        int randomInt = Random.Range(0, 3);
+        switch (randomInt){
+            case 0:
+                audioM.Play("Meow1");
+                break;
+            case 1:
+                //audioM.Play("Meow2");
+                break;
+            case 2:
+                audioM.Play("Meow3");
+                break;
+            case 3:
+                //audioM.Play("Meow4");
+                break;
+            default:
+                break;
+
+        }
     }
 }

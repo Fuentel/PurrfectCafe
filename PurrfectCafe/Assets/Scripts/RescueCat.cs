@@ -24,10 +24,13 @@ public class RescueCat : MonoBehaviour
     public GameObject Product;
     public GameObject catDuppedToShow;
     public int lastCatadded = -1;
+    private AudioManager audioM;
     // Start is called before the first frame update
     void Start()
     {
         AlrRescueButton1.SetActive(false);
+
+        audioM = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -80,6 +83,7 @@ public class RescueCat : MonoBehaviour
         rescuing1 = false;
         NewCatArrived.SetActive(false);
         lastCatadded = -1;
+        audioM.Play("Click");
     }
     public void ChangeRecueTimeOutsideScreen(float timepased)
     {
@@ -87,39 +91,49 @@ public class RescueCat : MonoBehaviour
         {
             timeToRescue1 -= timepased;
         }
+
     }
     public void IncreaseHairBalls()
     {
         hairBalls += 50;
-    }public void DecreaseHairBalls()
+        audioM.Play("Click");
+    }
+    public void DecreaseHairBalls()
     {
         hairBalls -= 50;
         if (hairBalls < 50)
         {
             hairBalls = 50;
         }
+        audioM.Play("Click");
     }
     public void IncreaseCoins()
     {
         coins += 50;
-    }public void DecreaseCoins()
+        audioM.Play("Click");
+    }
+    public void DecreaseCoins()
     {
         coins -= 50;
         if (coins < 50)
         {
             coins = 50;
         }
+        audioM.Play("Click");
     }
     public void IncreaseTime()
     {
         timePut += 30;
-    }public void DecreaseTime()
+        audioM.Play("Click");
+    }
+    public void DecreaseTime()
     {
         timePut -= 30;
         if (timePut < 30)
         {
             timePut = 30.0f;
         }
+        audioM.Play("Click");
     }
     public void NotEnoughR()
     {
@@ -149,6 +163,7 @@ public class RescueCat : MonoBehaviour
                 rescuing1 = true;
             }
         }
+        audioM.Play("Click");
     }
     public void GenerateProbability()
     {
