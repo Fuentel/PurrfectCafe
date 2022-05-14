@@ -34,16 +34,20 @@ public class ResourcesController : MonoBehaviour
         }
         coinsNum += (int)sum;
     }
-    public void changeHairBalls(int sum)
+    public void changeHairBalls(float sum)
     {
         if (sum < 1)
         {
             sum = 1;
         }
-        hairBallsNum += sum;
+        hairBallsNum += (int)sum;
     }
-    public void changePupularity(int sum)
+    public void changePupularity(float sum)
     {
-        popularityNum += sum;
+        if (sum < 1)
+        {
+            sum = 1;
+        }
+        popularityNum += (int)sum;
     }
 }

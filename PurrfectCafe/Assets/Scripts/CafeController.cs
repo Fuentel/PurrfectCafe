@@ -7,6 +7,9 @@ public class CafeController : MonoBehaviour
     public ManageCatPosition catPosition;
     public ResourcesController resources;
     public ManageStoring storing;
+    public float upgradeCoins=1;
+    public float upgradeFurniture=1;
+    public float upgradePopularity=1;
     public float totalPopularity = 0.0f;
     public float furniturePopularity = 0.0f;
     public float totalCoins = 0.0f;
@@ -38,20 +41,20 @@ public class CafeController : MonoBehaviour
         totalCoins = 0.0f;
         if (catPosition.catCoins1 != null)
         {
-            totalPopularity+= catPosition.catCoins1.GetComponent<CatCaracteristics>().Popularity;
-            totalCoins += catPosition.catCoins1.GetComponent<CatCaracteristics>().CoinsPerSecond;
+            totalPopularity+= catPosition.catCoins1.GetComponent<CatCaracteristics>().Popularity * upgradePopularity;
+            totalCoins += catPosition.catCoins1.GetComponent<CatCaracteristics>().CoinsPerSecond * upgradeCoins;
         }
         if (catPosition.catCoins2 != null)
         {
-            totalPopularity += catPosition.catCoins2.GetComponent<CatCaracteristics>().Popularity;
-            totalCoins += catPosition.catCoins2.GetComponent<CatCaracteristics>().CoinsPerSecond;
+            totalPopularity += catPosition.catCoins2.GetComponent<CatCaracteristics>().Popularity * upgradePopularity;
+            totalCoins += catPosition.catCoins2.GetComponent<CatCaracteristics>().CoinsPerSecond * upgradeCoins;
         }
         if (catPosition.catCoins3 != null)
         {
-            totalPopularity += catPosition.catCoins3.GetComponent<CatCaracteristics>().Popularity;
-            totalCoins += catPosition.catCoins3.GetComponent<CatCaracteristics>().CoinsPerSecond;
+            totalPopularity += catPosition.catCoins3.GetComponent<CatCaracteristics>().Popularity * upgradePopularity;
+            totalCoins += catPosition.catCoins3.GetComponent<CatCaracteristics>().CoinsPerSecond * upgradeCoins;
         }
-        totalPopularity += furniturePopularity;
+        totalPopularity += furniturePopularity * upgradeFurniture;
     }
     void UpdateFurniturePopularity()
     {

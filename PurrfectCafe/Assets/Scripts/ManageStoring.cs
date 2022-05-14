@@ -17,6 +17,7 @@ public class ManageStoring : MonoBehaviour
     public Button ArrowR;
     public bool clickedOnChange;
     public ManageCatPosition manageCats;
+    public int currentSlots = 18;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +76,7 @@ public class ManageStoring : MonoBehaviour
     {
         if (catSlots[0] == null)
         {
-            for (int i = 1; i < catSlots.Length - 1; i++)
+            for (int i = 1; i < currentSlots - 1; i++)
             {
 
                 if (catSlots[i] != null)
@@ -86,7 +87,7 @@ public class ManageStoring : MonoBehaviour
                 }
             }
         }
-        for (int i = 8; i < catSlots.Length - 1; i++)
+        for (int i = 8; i < currentSlots - 1; i++)
         {
             if (catSlots[i + 1] != null && catSlots[i] == null)
             {
@@ -95,7 +96,7 @@ public class ManageStoring : MonoBehaviour
             }
         }
         //update game position
-        for (int i = 0; i < catSlots.Length; i++)
+        for (int i = 0; i < currentSlots; i++)
         {
             if (catSlots[i] != null)
             {
@@ -174,7 +175,7 @@ public class ManageStoring : MonoBehaviour
     public int AddACat(GameObject catToAdd)
     {
         int position = 0;
-        for (int i = 0; i < catSlots.Length; i++)
+        for (int i = 0; i < currentSlots; i++)
         {
             if (catSlots[i] == null)
             {
@@ -230,50 +231,14 @@ public class ManageStoring : MonoBehaviour
     {
         clickedOnChange = true;
     }
-    public void ClickOnCatSlot1()
-    {
-        AllButtonsFunction(1);
-    }
-    public void ClickOnCatSlot2()
-    {
-        AllButtonsFunction(2);
-    }
-    public void ClickOnCatSlot3()
-    {
-        AllButtonsFunction(3);
-    }
-    public void ClickOnCatSlot4()
-    {
-        AllButtonsFunction(4);
-    }
-    public void ClickOnCatSlot5()
-    {
-        AllButtonsFunction(5);
-    }
-    public void ClickOnCatSlot6()
-    {
-        AllButtonsFunction(6);
-    }
-    public void ClickOnCatSlot7()
-    {
-        AllButtonsFunction(7);
-    }
-    public void ClickOnCatSlot8()
-    {
-        AllButtonsFunction(8);
-    }
-    public void ClickOnCatSlot9()
-    {
-        AllButtonsFunction(9);    
-    }
-    private void AllButtonsFunction(int index)
+    public void ClickOnCatSlot(int index)
     {
         if (clickedOnChange)
         {
             GameObject aux;
             aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[index + (9 * actualStorageScreen)-1];
-            catSlots[index + (9 * actualStorageScreen)-1] = aux;
+            catSlots[actualCat] = catSlots[index + (9 * actualStorageScreen) - 1];
+            catSlots[index + (9 * actualStorageScreen) - 1] = aux;
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
@@ -281,7 +246,7 @@ public class ManageStoring : MonoBehaviour
             Cafe.gameObject.SetActive(true);
 
             Debug.Log("Clicked on" + actualCat);
-            Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen)-1));
+            Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen) - 1));
         }
         else
         {
@@ -289,14 +254,14 @@ public class ManageStoring : MonoBehaviour
             ClickPanel.SetActive(true);
             Nursery.gameObject.SetActive(false);
             Cafe.gameObject.SetActive(false);
-            actualCat = index + (9 * actualStorageScreen)-1;
-            Debug.Log("actualCar" + (index+(9 * actualStorageScreen)-1));
-        }
+            actualCat = index + (9 * actualStorageScreen) - 1;
+            Debug.Log("actualCar" + (index + (9 * actualStorageScreen) - 1));
+        };
     }
     public bool isFull()
     {
         bool returned = true;
-        for (int i = 0; i < 36; i++)
+        for (int i = 0; i < currentSlots; i++)
         {
             if (catSlots[i]==null)
             {

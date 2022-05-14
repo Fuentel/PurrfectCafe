@@ -152,10 +152,10 @@ public class RescueCat : MonoBehaviour
     }
     public void GenerateProbability()
     {
-        resources.hairBallsNum -= hairBalls;
-        resources.coinsNum -= coins;
         if (!rescuing1)
         {
+            resources.hairBallsNum -= hairBalls;
+            resources.coinsNum -= coins;
             probabilityCatRescue1 = CalculateProbability();
         }
     }
