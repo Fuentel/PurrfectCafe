@@ -42,6 +42,18 @@ public class ManageStoring : MonoBehaviour
     {
         
     }
+    public void UpdateHats(int numHat)
+    {
+        for (int i=0;i< currentSlots; i++)
+        {
+            if (catSlots[i] != null)
+            {
+                catSlots[i].GetComponent<CatCaracteristics>().Hats[catSlots[i].GetComponent<CatCaracteristics>().actualHat].SetActive(false);
+                catSlots[i].GetComponent<CatCaracteristics>().Hats[numHat].SetActive(true);
+                catSlots[i].GetComponent<CatCaracteristics>().actualHat = numHat;
+            }
+        }
+    }
     private void CheckArrowsToActivate()
     {
         if (actualStorageScreen == 0)

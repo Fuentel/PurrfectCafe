@@ -17,6 +17,8 @@ public class CatCaracteristics : MonoBehaviour
     public bool Nursery=false;
     public bool Shop=false;
     public bool Storing=false;
+    public GameObject[] Hats;
+    public int actualHat;
 
 
     // Start is called before the first frame update

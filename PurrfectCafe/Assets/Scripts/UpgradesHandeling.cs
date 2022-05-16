@@ -113,7 +113,12 @@ public class UpgradesHandeling : MonoBehaviour
                     UpgradeMoreHairballsPerClick(0.20f);
                 }
             }
+
         }
+    }
+    void ChangeHat(int numHat)
+    {
+        storing.UpdateHats(numHat);
     }
     void UpgradeMoreHairballsPerClick(float sum)
     {
@@ -121,6 +126,7 @@ public class UpgradesHandeling : MonoBehaviour
     }
     void UpgradeMoreHairballsPerClickMain(float sum)
     {
+
         catSpace.upgradeMainMultiplier += sum;
     }
     void UpgradeMoreHairballsPerClickSupp(float sum)

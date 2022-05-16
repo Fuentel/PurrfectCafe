@@ -159,6 +159,7 @@ public class RescueCat : MonoBehaviour
             GenerateProbability();
             if (!rescuing1)
             {
+                NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", timePut/60);
                 timeToRescue1 = timePut; //* 60;
                 rescuing1 = true;
             }
