@@ -56,6 +56,8 @@ MonoBehaviour:
   Nursery: 0
   Shop: 0
   Storing: 0
+  Hats: []
+  actualHat: 0
 --- !u!1 &8566756649674079282
 GameObject:
   m_ObjectHideFlags: 0
