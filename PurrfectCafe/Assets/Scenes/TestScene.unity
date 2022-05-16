@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3460,7 +3460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &501018569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3563,11 +3563,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1729a2f229155d64dadaca686473c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CottonCandyPrefab: {fileID: 5615748401201423895, guid: f1a6b1388350eef4cacc1102c71ecaa8, type: 3}
-  BlueRussianPrefab: {fileID: 7087144927209041561, guid: 279b3aa34bb63b24aacb6e61da434517, type: 3}
-  EuropeanOrangePrefab: {fileID: 7211075682994465050, guid: ba71d186566d55246be0984cc575809f, type: 3}
-  SiamesPrefab: {fileID: 5088929933958780258, guid: 004bc8cf276e79344aad53d2447d621d, type: 3}
-  BengalPrefab: {fileID: 410226007864448493, guid: 4e6e570204ebd1944b02fd9ce57c6213, type: 3}
+  CottonCandyPrefab: {fileID: 8702485074636485735, guid: ccaafc831a69978489918fe52184d82b, type: 3}
+  BlueRussianPrefab: {fileID: 7554878980311080833, guid: 2dc9c3e63996a5c419694b76b7b2078f, type: 3}
+  EuropeanOrangePrefab: {fileID: 6113924829475218251, guid: d41b3297afe6bdb439e36fd3185836ae, type: 3}
+  SiamesPrefab: {fileID: 8735922951412266577, guid: 3b18e45e8b321c64da07e5ce1c192bee, type: 3}
+  BengalPrefab: {fileID: 7361852656521697586, guid: 7bd6e6642368b82438fcc1c2f2f7fbb0, type: 3}
   catPosition: {fileID: 871231151}
   GeneralCanvasObj: {fileID: 871231145}
 --- !u!1 &514042144
@@ -8142,7 +8142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1068865273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8943,7 +8943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.17352356}
-  m_AnchoredPosition: {x: 0.000061035156, y: -11.046722}
+  m_AnchoredPosition: {x: 0.000061035156, y: -11.046692}
   m_SizeDelta: {x: 0.000061035, y: 44.842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1133948319
