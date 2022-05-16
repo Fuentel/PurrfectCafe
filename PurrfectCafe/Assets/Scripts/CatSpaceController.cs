@@ -65,7 +65,7 @@ public class CatSpaceController : MonoBehaviour
                 }
                 else
                 {
-                    dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+                    dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToSupp();
                 }
                 dupCats[i].SetActive(true);
             }

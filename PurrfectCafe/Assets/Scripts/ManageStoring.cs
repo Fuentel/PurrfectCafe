@@ -261,8 +261,8 @@ public class ManageStoring : MonoBehaviour
         {
             GameObject aux;
             aux = catSlots[actualCat];
-            catSlots[actualCat] = catSlots[index + (9 * actualStorageScreen) - 1];
-            catSlots[index + (9 * actualStorageScreen) - 1] = aux;
+            catSlots[actualCat] = catSlots[index + (9 * actualStorageScreen)];
+            catSlots[index + (9 * actualStorageScreen)] = aux;
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
@@ -270,7 +270,7 @@ public class ManageStoring : MonoBehaviour
             Cafe.gameObject.SetActive(true);
 
             Debug.Log("Clicked on" + actualCat);
-            Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen) - 1));
+            Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen)));
         }
         else
         {
@@ -278,8 +278,8 @@ public class ManageStoring : MonoBehaviour
             ClickPanel.SetActive(true);
             Nursery.gameObject.SetActive(false);
             Cafe.gameObject.SetActive(false);
-            actualCat = index + (9 * actualStorageScreen) - 1;
-            Debug.Log("actualCar" + (index + (9 * actualStorageScreen) - 1));
+            actualCat = index + (9 * actualStorageScreen);
+            Debug.Log("actualCar" + (index + (9 * actualStorageScreen)));
         };
         audioM.Play("Click");
     }

@@ -54,26 +54,21 @@ public class RescueCat : MonoBehaviour
         NewCatArrived.SetActive(true);
         Destroy(catDuppedToShow);
         catDuppedToShow = null;
-        catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], NewCatArrived.transform); ;
-        catDuppedToShow.transform.parent = NewCatArrived.transform;
-        catDuppedToShow.transform.position = Product.transform.position;
-        catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+        catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
+        catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
     }
     public void DeleteCatAdded()
     {
         if (lastCatadded != -1)
         {
             storing.ReleaseACatOutsideThisScreen(lastCatadded);
-            //anuncio
             if (rescuing1)
             {
                 Destroy(catDuppedToShow);
                 catDuppedToShow = null;
                 lastCatadded = catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
-                catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], NewCatArrived.transform);
-                catDuppedToShow.transform.parent = NewCatArrived.transform;
-                catDuppedToShow.transform.position = Product.transform.position;
-                catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+                catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
+                catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
             }
         }
 

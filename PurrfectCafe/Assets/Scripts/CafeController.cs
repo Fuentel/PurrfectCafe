@@ -13,6 +13,7 @@ public class CafeController : MonoBehaviour
     public float totalPopularity = 0.0f;
     public float furniturePopularity = 0.0f;
     public float totalCoins = 0.0f;
+    public float heightOutofFurniture = 0.0f;
     public GameObject[] Toy;
     public int actualToy;
     public GameObject[] Chair;
@@ -113,8 +114,8 @@ public class CafeController : MonoBehaviour
             if (storing.catSlots[i+5] != null)
             {
                 dupCats[i] = Object.Instantiate(storing.catSlots[i+5], catSpaces[i].transform);
-                dupCats[i].transform.position = catSpaces[i].transform.position;
-                dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToStoring();
+                dupCats[i].transform.position = new Vector3(catSpaces[i].transform.position.x, catSpaces[i].transform.position.y-heightOutofFurniture, catSpaces[i].transform.position.z);
+                dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToShop();
                 dupCats[i].SetActive(true);
             }
             else

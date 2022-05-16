@@ -19,6 +19,11 @@ public class CatCaracteristics : MonoBehaviour
     public bool Storing=false;
     public GameObject[] Hats;
     public int actualHat;
+    private float slotScale= 0.15f;
+    private float suppScale= 1.3f;
+    private float rescueScale= 1;
+    private float catSpaceScale=6;
+    private float cofeSpaceScale=0.7f;
 
 
     // Start is called before the first frame update
@@ -33,14 +38,35 @@ public class CatCaracteristics : MonoBehaviour
     }
     public void ChangeScaleToNursery()
     {
-        transform.localScale = new Vector3(100.0f, 100.0f, 100.0f);
+        transform.localScale = new Vector3(catSpaceScale, catSpaceScale, catSpaceScale);
         Storing = false;
         Nursery = true;
         Shop = false;
     }
     public void ChangeScaleToStoring()
     {
-        transform.localScale = new Vector3(20.0f, 20.0f, 20.0f);
+        transform.localScale = new Vector3(slotScale, slotScale, slotScale);
+        Storing = true;
+        Nursery = false;
+        Shop = false;
+    }
+    public void ChangeScaleToSupp()
+    {
+        transform.localScale = new Vector3(suppScale, suppScale, suppScale);
+        Storing = true;
+        Nursery = false;
+        Shop = false;
+    }
+    public void ChangeScaleToRescue()
+    {
+        transform.localScale = new Vector3(rescueScale, rescueScale, rescueScale);
+        Storing = true;
+        Nursery = false;
+        Shop = false;
+    }
+    public void ChangeScaleToShop()
+    {
+        transform.localScale = new Vector3(cofeSpaceScale, cofeSpaceScale, cofeSpaceScale);
         Storing = true;
         Nursery = false;
         Shop = false;
