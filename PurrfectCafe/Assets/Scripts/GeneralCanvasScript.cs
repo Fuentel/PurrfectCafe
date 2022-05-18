@@ -10,6 +10,8 @@ public class GeneralCanvasScript : MonoBehaviour
     public GameObject Rescue;
     public GameObject Upgrades;
     public GameObject Shop;
+    public GameObject Menu;
+    public GameObject Game;
     public ManageStoring storingScript;
     public CatSpaceController catSpace;
     public CafeController cafeController;
@@ -66,14 +68,16 @@ public class GeneralCanvasScript : MonoBehaviour
         {
             actualGameScreen = 4;
         }
-        if (actualGameScreen==0)
+        if (actualGameScreen == 0)
         {
+            Debug.Log("a");
+            Menu.SetActive(false);
             Nursery.SetActive(true);
             Storing.SetActive(false);
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(false);
-            for (int i=0;i< catSpace.dupCats.Length;i++)
+            for (int i = 0; i < catSpace.dupCats.Length; i++)
             {
                 if (catSpace.dupCats[i] != null)
                 {
@@ -85,6 +89,7 @@ public class GeneralCanvasScript : MonoBehaviour
         }
         else if (actualGameScreen == 1)
         {
+            Menu.SetActive(false);
             Nursery.SetActive(false);
             Storing.SetActive(true);
             Rescue.SetActive(false);
@@ -93,6 +98,7 @@ public class GeneralCanvasScript : MonoBehaviour
         }
         else if (actualGameScreen == 2)
         {
+            Menu.SetActive(false);
             Nursery.SetActive(false);
             Storing.SetActive(false);
             Rescue.SetActive(true);
@@ -101,6 +107,7 @@ public class GeneralCanvasScript : MonoBehaviour
         }
         else if (actualGameScreen == 3)
         {
+            Menu.SetActive(false);
             Nursery.SetActive(false);
             Storing.SetActive(false);
             Rescue.SetActive(false);
@@ -109,6 +116,7 @@ public class GeneralCanvasScript : MonoBehaviour
         }
         else if (actualGameScreen == 4)
         {
+            Menu.SetActive(false);
             Nursery.SetActive(false);
             Storing.SetActive(false);
             Rescue.SetActive(false);
@@ -124,6 +132,20 @@ public class GeneralCanvasScript : MonoBehaviour
             }
             cafeController.VisualizeCats();
         }
+        else if (actualGameScreen == -1)
+        { 
+            Menu.SetActive(true);
+            Nursery.SetActive(false);
+            Storing.SetActive(false);
+            Rescue.SetActive(false);
+            Upgrades.SetActive(false);
+            Shop.SetActive(false);
+        }
+    }
+    public void MenuButton()
+    {
+        Game.SetActive(true);
+        Menu.SetActive(false);
     }
     public void ArrowRight()
     {
