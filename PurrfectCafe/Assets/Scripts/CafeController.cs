@@ -6,6 +6,7 @@ public class CafeController : MonoBehaviour
 {
     public ManageCatPosition catPosition;
     public ResourcesController resources;
+    public UpgradesHandeling upgrades;
     public ManageStoring storing;
     public float upgradeCoins=1;
     public float upgradeFurniture=1;
@@ -79,24 +80,40 @@ public class CafeController : MonoBehaviour
     }
     public void ChangeChair(int numChair)
     {
+        if (Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity < Chair[numChair].GetComponent<FurnitureCaracteristics>().Popularity)
+        {
+            Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numChair].GetComponent<FurnitureCaracteristics>().Popularity;
+        }
         Chair[actualChair].SetActive(false);
         actualChair = numChair;
         Chair[actualChair].SetActive(true);
     }
     public void ChangeToy(int numToy)
     {
+        if (Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity < Chair[numToy].GetComponent<FurnitureCaracteristics>().Popularity)
+        {
+            Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numToy].GetComponent<FurnitureCaracteristics>().Popularity;
+        }
         Toy[actualToy].SetActive(false);
         actualToy = numToy;
         Toy[actualToy].SetActive(true);
     }
     public void ChangePlant(int numPlant)
     {
+        if (Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity < Chair[numPlant].GetComponent<FurnitureCaracteristics>().Popularity)
+        {
+            Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numPlant].GetComponent<FurnitureCaracteristics>().Popularity;
+        }
         Plant[actualPlant].SetActive(false);
         actualPlant = numPlant;
         Plant[actualPlant].SetActive(true);
     }
     public void ChangeBox(int numBox)
     {
+        if (Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity < Chair[numBox].GetComponent<FurnitureCaracteristics>().Popularity)
+        {
+            Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numBox].GetComponent<FurnitureCaracteristics>().Popularity;
+        }
         Box[actualBox].SetActive(false);
         actualBox = numBox;
         Box[actualBox].SetActive(true);

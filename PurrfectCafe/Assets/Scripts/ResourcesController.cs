@@ -15,8 +15,8 @@ public class ResourcesController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hairBallsNum = 2000;
-        coinsNum = 2000;
+        hairBallsNum = 900000;
+        coinsNum = 900000;
     }
 
     // Update is called once per frame

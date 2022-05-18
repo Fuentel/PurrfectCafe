@@ -285,7 +285,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: NotEnoughR
         m_Mode: 1
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: DecreaseTime
         m_Mode: 1
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: IncreaseTime
         m_Mode: 1
@@ -3193,7 +3193,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 439605482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 871231155}
+        m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
+        m_MethodName: DeleteCatAdded
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &439605482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3247,7 +3259,7 @@ MonoBehaviour:
   _showAdButton: {fileID: 439605481}
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
-  rescue: {fileID: 501018572}
+  rescue: {fileID: 0}
 --- !u!1 &468756814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,7 +3331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.26075998}
   m_AnchorMax: {x: 0.94667226, y: 1}
-  m_AnchoredPosition: {x: -5, y: 10.5}
+  m_AnchoredPosition: {x: -5.0000076, y: 10.5}
   m_SizeDelta: {x: 10.681, y: 33.631}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475925958
@@ -3454,14 +3466,13 @@ GameObject:
   - component: {fileID: 501018571}
   - component: {fileID: 501018570}
   - component: {fileID: 501018573}
-  - component: {fileID: 501018572}
   m_Layer: 5
   m_Name: RescuePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &501018569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3525,33 +3536,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501018568}
   m_CullTransparentMesh: 1
---- !u!114 &501018572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501018568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7eeb7350187d1b4ca8b6c1366e86f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToRescue1: 0
-  rescuing1: 0
-  hairBallsText: {fileID: 1170973444}
-  coinsText: {fileID: 1972438417}
-  timeText: {fileID: 1392003501}
-  catgenerator: {fileID: 501018573}
-  storing: {fileID: 871231151}
-  resources: {fileID: 143905418}
-  NotEnough: {fileID: 1026946430}
-  isFull: {fileID: 344056901}
-  AlrRescueButton1: {fileID: 729992812}
-  NewCatArrived: {fileID: 1768317812}
-  Product: {fileID: 1155420849}
-  catDuppedToShow: {fileID: 0}
-  lastCatadded: -1
 --- !u!114 &501018573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5088,7 +5072,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: AlreadyRescueButton1
         m_Mode: 1
@@ -6089,6 +6073,7 @@ GameObject:
   - component: {fileID: 871231152}
   - component: {fileID: 871231153}
   - component: {fileID: 871231154}
+  - component: {fileID: 871231155}
   m_Layer: 5
   m_Name: GeneralGameCanvas
   m_TagString: Untagged
@@ -6315,7 +6300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePasedOut: 0
-  rescue: {fileID: 501018572}
+  rescue: {fileID: 871231155}
 --- !u!114 &871231154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6382,9 +6367,36 @@ MonoBehaviour:
   - {fileID: 641563692}
   NotEnough: {fileID: 1205567662}
   catSpace: {fileID: 2042896878}
-  resources: {fileID: 143905418}
+  resources: {fileID: 0}
   cafe: {fileID: 2109275705}
   storing: {fileID: 871231151}
+--- !u!114 &871231155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871231145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7eeb7350187d1b4ca8b6c1366e86f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRescue1: 0
+  rescuing1: 0
+  hairBallsText: {fileID: 1170973444}
+  coinsText: {fileID: 1972438417}
+  timeText: {fileID: 1392003501}
+  catgenerator: {fileID: 501018573}
+  storing: {fileID: 871231151}
+  resources: {fileID: 0}
+  NotEnough: {fileID: 1026946430}
+  isFull: {fileID: 344056901}
+  AlrRescueButton1: {fileID: 729992812}
+  NewCatArrived: {fileID: 1768317812}
+  Product: {fileID: 1155420849}
+  catDuppedToShow: {fileID: 0}
+  lastCatadded: -1
 --- !u!1 &891826063
 GameObject:
   m_ObjectHideFlags: 0
@@ -8148,7 +8160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1068865273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8861,7 +8873,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: IncreaseHairBalls
         m_Mode: 1
@@ -10181,7 +10193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: RescueButton
         m_Mode: 1
@@ -10677,7 +10689,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: FullButton
         m_Mode: 1
@@ -11452,7 +11464,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: ContinueWithThisCat
         m_Mode: 1
@@ -12525,7 +12537,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: IncreaseCoins
         m_Mode: 1
@@ -12657,7 +12669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: DecreaseCoins
         m_Mode: 1
@@ -16092,7 +16104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696146585d6d8254090b5d9055d1240b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resources: {fileID: 143905418}
+  resources: {fileID: 0}
   catPosition: {fileID: 871231150}
   storing: {fileID: 871231151}
   dupCats:
@@ -16442,7 +16454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501018572}
+      - m_Target: {fileID: 871231155}
         m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
         m_MethodName: DecreaseHairBalls
         m_Mode: 1
