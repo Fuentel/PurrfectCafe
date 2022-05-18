@@ -19,6 +19,7 @@ public class ManageStoring : MonoBehaviour
     public ManageCatPosition manageCats;
     public int currentSlots = 18;
     private AudioManager audioM;
+    public int currentHat = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class ManageStoring : MonoBehaviour
     }
     public void UpdateHats(int numHat)
     {
+        currentHat = numHat;
         for (int i=0;i< currentSlots; i++)
         {
             if (catSlots[i] != null)
@@ -220,6 +222,10 @@ public class ManageStoring : MonoBehaviour
             }
         }
         UpdateCatsPosition();
+        if (currentHat != -1)
+        {
+            UpdateHats(currentHat);
+        }
         return position;
     }
     public void ClickOnRelease()

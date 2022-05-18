@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradesHandeling : MonoBehaviour
 {
     public bool[] BuyUpgrades = new bool[24];
     public bool[] AlreadyDoneUpgrades = new bool[24];
     public Vector2Int[] UpgradesCost = new Vector2Int[24];
+    public Text[] UpgradesText = new Text[24];
     public GameObject NotEnough;
     public CatSpaceController catSpace;
     public ResourcesController resources;
@@ -23,6 +25,10 @@ public class UpgradesHandeling : MonoBehaviour
         {
             AlreadyDoneUpgrades[i] = false;
         }
+        for (int i = 0; i < UpgradesText.Length; i++)
+        {
+            UpgradesText[i].text = "HB: " + UpgradesCost[i].x + " / C: "+ UpgradesCost[i].y;
+        }
     }
 
     // Update is called once per frame
@@ -32,15 +38,37 @@ public class UpgradesHandeling : MonoBehaviour
     }
     public void ActivateUpgrade(int toActivate)
     {
-        if (resources.hairBallsNum < UpgradesCost[toActivate].x || resources.coinsNum < UpgradesCost[toActivate].y)
+        if (!BuyUpgrades[toActivate])
         {
-            resources.hairBallsNum -= UpgradesCost[toActivate].x;
-            resources.coinsNum -= UpgradesCost[toActivate].y;
-            BuyUpgrades[toActivate] = true;
+            Debug.Log("Hairballs" + UpgradesCost[toActivate].x + "/  " + resources.hairBallsNum + " Coins" + UpgradesCost[toActivate].y + "/  " + resources.hairBallsNum);
+            if (resources.hairBallsNum >= UpgradesCost[toActivate].x || resources.coinsNum >= UpgradesCost[toActivate].y)
+            {
+                resources.hairBallsNum -= UpgradesCost[toActivate].x;
+                resources.coinsNum -= UpgradesCost[toActivate].y;
+                BuyUpgrades[toActivate] = true;
+                UpgradesText[toActivate].text = "SOLD!";
+            }
+            else
+            {
+                NotEnough.SetActive(true);
+
+            }
+            if (toActivate < 8)
+            {
+                ChangeHat(toActivate);
+            }
         }
-        else
+        else if (toActivate<8)
         {
-            NotEnough.SetActive(true);
+            ChangeHat(toActivate);
+        } 
+        else if (toActivate == 20)
+        {
+            cafe.ChangeChair(2);
+        }
+        else if (toActivate == 18)
+        {
+            cafe.ChangeChair(1);
         }
     }
     public void NotEnought()
@@ -126,7 +154,6 @@ public class UpgradesHandeling : MonoBehaviour
     }
     void UpgradeMoreHairballsPerClickMain(float sum)
     {
-
         catSpace.upgradeMainMultiplier += sum;
     }
     void UpgradeMoreHairballsPerClickSupp(float sum)
