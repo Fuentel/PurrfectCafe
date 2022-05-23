@@ -12,6 +12,7 @@ public class CatSpaceController : MonoBehaviour
     public float upgradeMultiplier = 1;
     public float upgradeMainMultiplier = 1;
     public float upgradeSuppMultiplier = 1;
+    public ParticleSystem particles;
     private AudioManager audioM;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class CatSpaceController : MonoBehaviour
     }
     void Update()
     {
-
+    
     }
     // Update is called once per frame
     public void GenerateHairballs()
@@ -29,7 +30,13 @@ public class CatSpaceController : MonoBehaviour
         if (catPosition.currentMainCat != null) 
         {
             Debug.Log("a");
-            resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick * upgradeMainMultiplier * upgradeMultiplier);
+            resources.changeHairBalls(catPosition.currentMainCat.GetComponent<CatCaracteristics>().HairBallPerClick * upgradeMainMultiplier * upgradeMultiplier);// esto da error btw idkw
+            ChooseMeowSound();
+            if (particles != null)
+            {
+                particles.Emit(1);
+            }
+
         }
         if (catPosition.catSupp1 != null)
         {
@@ -49,7 +56,11 @@ public class CatSpaceController : MonoBehaviour
             resources.changeHairBalls(catPosition.catSupp4.GetComponent<CatCaracteristics>().HairBallPerClickSupp * upgradeMultiplier * upgradeSuppMultiplier);
 
         }
-        ChooseMeowSound();
+
+
+       
+
+
     }
     public void VisualizeCats()
     {
