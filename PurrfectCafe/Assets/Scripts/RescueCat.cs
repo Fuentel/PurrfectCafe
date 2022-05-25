@@ -7,7 +7,7 @@ public class RescueCat : MonoBehaviour
 {
     private int hairBalls = 50;
     private int coins = 50;
-    private float timePut = 10.0f;
+    private float timePut = 3.0f;
     public float timeToRescue1;
     Vector3Int probabilityCatRescue1;
     public bool rescuing1 = false;
@@ -43,7 +43,7 @@ public class RescueCat : MonoBehaviour
         }
         else if(rescuing1 && timeToRescue1 < 0.0f)
         {
-            AlrRescueButton1.SetActive(true); ;
+            AlrRescueButton1.SetActive(true);
             timeToRescue1 = 0.0f;
         }
     }
@@ -162,7 +162,7 @@ public class RescueCat : MonoBehaviour
             GenerateProbability();
             if (!rescuing1)
             {
-                NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", timePut/60);
+                NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", ((double)timePut)/60);
                 timeToRescue1 = timePut; //* 60;
                 rescuing1 = true;
             }

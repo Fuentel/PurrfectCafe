@@ -12,11 +12,11 @@ public class MyIAPManager : IStoreListener
 
         Debug.Log("IAP Manager initialization started");
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
-        /* builder.AddProduct("100_gold_coins", ProductType.Consumable, new IDs
+         builder.AddProduct("Popularity", ProductType.Consumable, new IDs
          {
-             {"100_gold_coins_google", GooglePlay.Name},
-             {"100_gold_coins_mac", MacAppStore.Name}
-         });*/
+             {"Popularity", GooglePlay.Name},
+             {"Popularity", MacAppStore.Name}
+         });
 
         UnityPurchasing.Initialize(this, builder);
 
@@ -40,6 +40,7 @@ public class MyIAPManager : IStoreListener
     /// </summary>
     public void OnInitializeFailed(InitializationFailureReason error)
     {
+        Debug.Log("IAP Manager initialization failed"+error);
     }
 
     /// <summary>

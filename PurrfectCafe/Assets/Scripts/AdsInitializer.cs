@@ -7,9 +7,11 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] string _iOSGameId;
     [SerializeField] bool _testMode = true;
     private string _gameId;
+    MyIAPManager iapManager = null;
     void Awake()
     {
         InitializeAds();
+        iapManager = new MyIAPManager();
     }
 
     public void InitializeAds()
