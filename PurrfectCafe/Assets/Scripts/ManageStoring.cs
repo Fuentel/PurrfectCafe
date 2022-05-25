@@ -246,6 +246,7 @@ public class ManageStoring : MonoBehaviour
         UpdateCatsPosition();
 
         audioM.Play("Click");
+        Debug.Log("CatReleased2");
     }
     public void ClickOnCancel()
     {

@@ -61,14 +61,22 @@ public class RescueCat : MonoBehaviour
     {
         if (lastCatadded != -1)
         {
+            Debug.Log("empezamos");
             storing.ReleaseACatOutsideThisScreen(lastCatadded);
+            Debug.Log("CatReleased2");
             if (rescuing1)
             {
+
+                Debug.Log("if");
                 Destroy(catDuppedToShow);
+                Debug.Log("catDestroyedDupped");
                 catDuppedToShow = null;
                 lastCatadded = catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
+                Debug.Log("generateCat");
                 catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
                 catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
+
+                Debug.Log("putCat");
             }
         }
 
