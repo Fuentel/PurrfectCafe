@@ -12,6 +12,7 @@ public class GeneralCanvasScript : MonoBehaviour
     public GameObject Shop;
     public GameObject Menu;
     public GameObject Game;
+    public GameObject IAP;
     public ManageStoring storingScript;
     public CatSpaceController catSpace;
     public CafeController cafeController;
@@ -60,23 +61,23 @@ public class GeneralCanvasScript : MonoBehaviour
     }
     private void ChangeScreen()
     {
-        if (actualGameScreen == 5)
+        if (actualGameScreen == 6)
         {
             actualGameScreen = 0;
         }
         if(actualGameScreen == -1)
         {
-            actualGameScreen = 4;
+            actualGameScreen = 5;
         }
         if (actualGameScreen == 0)
         {
-            Debug.Log("a");
             Menu.SetActive(false);
             Nursery.SetActive(true);
             Storing.SetActive(false);
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(false);
+            IAP.SetActive(false);
             for (int i = 0; i < catSpace.dupCats.Length; i++)
             {
                 if (catSpace.dupCats[i] != null)
@@ -95,6 +96,7 @@ public class GeneralCanvasScript : MonoBehaviour
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(false);
+            IAP.SetActive(false);
         }
         else if (actualGameScreen == 2)
         {
@@ -104,6 +106,7 @@ public class GeneralCanvasScript : MonoBehaviour
             Rescue.SetActive(true);
             Upgrades.SetActive(false);
             Shop.SetActive(false);
+            IAP.SetActive(false);
         }
         else if (actualGameScreen == 3)
         {
@@ -113,6 +116,7 @@ public class GeneralCanvasScript : MonoBehaviour
             Rescue.SetActive(false);
             Upgrades.SetActive(true);
             Shop.SetActive(false);
+            IAP.SetActive(false);
         }
         else if (actualGameScreen == 4)
         {
@@ -122,6 +126,7 @@ public class GeneralCanvasScript : MonoBehaviour
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(true);
+            IAP.SetActive(false);
             for (int i = 0; i < cafeController.dupCats.Length; i++)
             {
                 if (cafeController.dupCats[i] != null)
@@ -132,20 +137,23 @@ public class GeneralCanvasScript : MonoBehaviour
             }
             cafeController.VisualizeCats();
         }
-        else if (actualGameScreen == -1)
+        else if (actualGameScreen == 5)
         { 
-            Menu.SetActive(true);
+            Menu.SetActive(false);
             Nursery.SetActive(false);
             Storing.SetActive(false);
             Rescue.SetActive(false);
             Upgrades.SetActive(false);
             Shop.SetActive(false);
+            IAP.SetActive(true);
         }
     }
     public void MenuButton()
     {
         Game.SetActive(true);
         Menu.SetActive(false);
+        actualGameScreen = 0;
+        ChangeScreen();
     }
     public void ArrowRight()
     {

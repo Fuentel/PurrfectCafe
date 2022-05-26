@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catName: 
-  race: Blue Russian
+  race: BlueRussian
   HairBallPerClick: 5
   HairBallPerClickSupp: 0
   CoinsPerSecond: 10

@@ -20,15 +20,13 @@ public class ManageStoring : MonoBehaviour
     public int currentSlots = 18;
     private AudioManager audioM;
     public int currentHat = -1;
+    public SavingManager saver;
     // Start is called before the first frame update
     void Start()
     {
         ClickPanel.SetActive(false);
         clickedOnChange = false;
-        for (int i = 0; i < 36; i++)
-        {
-            catSlots[i] = null;
-        }
+        
         for (int i = 0; i < slotBoxes.Length; i++)
         {
             slotBoxes[i].SetActive(false);
@@ -55,6 +53,7 @@ public class ManageStoring : MonoBehaviour
                 catSlots[i].GetComponent<CatCaracteristics>().actualHat = numHat;
             }
         }
+        saver.SaveData();
     }
     private void CheckArrowsToActivate()
     {
@@ -91,7 +90,7 @@ public class ManageStoring : MonoBehaviour
         CheckArrowsToActivate();
         audioM.Play("Click");
     }
-    private void UpdateCatsPosition()
+    public void UpdateCatsPosition()
     {
         if (catSlots[0] == null)
         {
@@ -190,6 +189,7 @@ public class ManageStoring : MonoBehaviour
         {
             manageCats.ChangeCoinCat3(catSlots[7]);
         }
+
     }
     public int AddACat(GameObject catToAdd)
     {
@@ -236,8 +236,8 @@ public class ManageStoring : MonoBehaviour
         ClickPanel.SetActive(false);
         Nursery.gameObject.SetActive(true);
         Cafe.gameObject.SetActive(true);
-
         audioM.Play("Click");
+        saver.SaveData();
     }
     public void ReleaseACatOutsideThisScreen(int catPos)
     {
@@ -247,6 +247,7 @@ public class ManageStoring : MonoBehaviour
 
         audioM.Play("Click");
         Debug.Log("CatReleased2");
+        saver.SaveData();
     }
     public void ClickOnCancel()
     {

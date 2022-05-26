@@ -7,10 +7,11 @@ public class RescueCat : MonoBehaviour
 {
     private int hairBalls = 50;
     private int coins = 50;
-    private float timePut = 3.0f;
+    private float timePut = 300.0f;
     public float timeToRescue1;
-    Vector3Int probabilityCatRescue1;
-    public bool rescuing1 = false;
+    public Vector3Int probabilityCatRescue1;
+    public bool rescuing1;
+    public bool needToActivateButton;
     public Text hairBallsText;
     public Text coinsText;
     public Text timeText;
@@ -25,10 +26,11 @@ public class RescueCat : MonoBehaviour
     public GameObject catDuppedToShow;
     public int lastCatadded = -1;
     private AudioManager audioM;
+    public SavingManager saver;
     // Start is called before the first frame update
     void Start()
     {
-        AlrRescueButton1.SetActive(false);
+        
 
         audioM = FindObjectOfType<AudioManager>();
     }
@@ -43,14 +45,21 @@ public class RescueCat : MonoBehaviour
         }
         else if(rescuing1 && timeToRescue1 < 0.0f)
         {
-            AlrRescueButton1.SetActive(true);
+            
+            needToActivateButton = true;
             timeToRescue1 = 0.0f;
+        }
+        if (needToActivateButton)
+        {
+            AlrRescueButton1.SetActive(true);
+            saver.SaveData();
         }
     }
     public void AlreadyRescueButton1()
     {
         lastCatadded=catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
         AlrRescueButton1.SetActive(false);
+        needToActivateButton = false;
         NewCatArrived.SetActive(true);
         Destroy(catDuppedToShow);
         catDuppedToShow = null;
@@ -87,6 +96,7 @@ public class RescueCat : MonoBehaviour
         NewCatArrived.SetActive(false);
         lastCatadded = -1;
         audioM.Play("Click");
+        saver.SaveData();
     }
     public void ChangeRecueTimeOutsideScreen(float timepased)
     {
@@ -165,6 +175,7 @@ public class RescueCat : MonoBehaviour
                 NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", ((double)timePut)/60);
                 timeToRescue1 = timePut; //* 60;
                 rescuing1 = true;
+                saver.SaveData();
             }
         }
         audioM.Play("Click");

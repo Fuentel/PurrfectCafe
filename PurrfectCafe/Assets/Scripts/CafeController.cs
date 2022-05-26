@@ -8,6 +8,7 @@ public class CafeController : MonoBehaviour
     public ResourcesController resources;
     public UpgradesHandeling upgrades;
     public ManageStoring storing;
+    public SavingManager saver;
     public float upgradeCoins=1;
     public float upgradeFurniture=1;
     public float upgradePopularity=1;
@@ -27,7 +28,6 @@ public class CafeController : MonoBehaviour
     public GameObject[] catSpaces;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -87,6 +87,8 @@ public class CafeController : MonoBehaviour
         Chair[actualChair].SetActive(false);
         actualChair = numChair;
         Chair[actualChair].SetActive(true);
+
+        saver.SaveData();
     }
     public void ChangeToy(int numToy)
     {
@@ -97,6 +99,7 @@ public class CafeController : MonoBehaviour
         Toy[actualToy].SetActive(false);
         actualToy = numToy;
         Toy[actualToy].SetActive(true);
+        saver.SaveData();
     }
     public void ChangePlant(int numPlant)
     {
@@ -107,6 +110,7 @@ public class CafeController : MonoBehaviour
         Plant[actualPlant].SetActive(false);
         actualPlant = numPlant;
         Plant[actualPlant].SetActive(true);
+        saver.SaveData();
     }
     public void ChangeBox(int numBox)
     {
@@ -117,6 +121,7 @@ public class CafeController : MonoBehaviour
         Box[actualBox].SetActive(false);
         actualBox = numBox;
         Box[actualBox].SetActive(true);
+        saver.SaveData();
     }
     
     public float GainsCoins()

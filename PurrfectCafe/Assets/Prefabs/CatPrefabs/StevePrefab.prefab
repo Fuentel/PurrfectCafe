@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catName: 
-  race: CottonCandy
+  race: Steve
   HairBallPerClick: 2
   HairBallPerClickSupp: 0
   CoinsPerSecond: 15

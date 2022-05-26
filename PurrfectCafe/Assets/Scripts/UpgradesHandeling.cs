@@ -14,13 +14,11 @@ public class UpgradesHandeling : MonoBehaviour
     public ResourcesController resources;
     public CafeController cafe;
     public ManageStoring storing;
+    public SavingManager saver;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i=0; i< BuyUpgrades.Length; i++)
-        {
-            BuyUpgrades[i] = false;
-        }
+        
         for (int i=0; i< AlreadyDoneUpgrades.Length; i++)
         {
             AlreadyDoneUpgrades[i] = false;
@@ -70,6 +68,8 @@ public class UpgradesHandeling : MonoBehaviour
         {
             cafe.ChangeChair(1);
         }
+
+        saver.SaveData();
     }
     public void NotEnought()
     {

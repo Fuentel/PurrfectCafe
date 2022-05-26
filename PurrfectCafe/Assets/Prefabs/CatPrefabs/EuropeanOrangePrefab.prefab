@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catName: 
-  race: European Orange
+  race: EuropeanOrange
   HairBallPerClick: 10
   HairBallPerClickSupp: 0
   CoinsPerSecond: 5

@@ -9,7 +9,11 @@ public class GenerateRandomCat : MonoBehaviour
     public GameObject EuropeanOrangePrefab;
     public GameObject SiamesPrefab;
     public GameObject BengalPrefab;
-    public ManageStoring catPosition;
+    public GameObject AntiStevePrefab;
+    public GameObject StevePrefab;
+    public GameObject MunchkinPrefab;
+    public GameObject NullPrefab;
+    public ManageStoring storing;
     public GameObject GeneralCanvasObj;
 
     private GameObject CatToPass;
@@ -31,9 +35,61 @@ public class GenerateRandomCat : MonoBehaviour
         int position = 0;
         SelectCatType(probSpecial, probShopper, probHairy);
         CreateCat();
-        position=catPosition.AddACat(CatToPass);
+        position=storing.AddACat(CatToPass);
         return position;
 
+    }
+    public  void AddACatInPosition(string race, int position)
+    {
+        int slotBoxToParent = 0;
+        if (position < 9)
+        {
+            slotBoxToParent = 0;
+        }
+        else if (position < 18)
+        {
+            slotBoxToParent = 1;
+        }
+        else if (position < 27)
+        {
+            slotBoxToParent = 2;
+        }
+        else if (position < 36)
+        {
+            slotBoxToParent = 3;
+        }
+        GameObject catToAdd = null;
+        if(race== "Siames")
+        {
+            catToAdd= Object.Instantiate(SiamesPrefab, GeneralCanvasObj.transform);
+        }else if(race== "AntiSteve")
+        {
+            catToAdd= Object.Instantiate(AntiStevePrefab, GeneralCanvasObj.transform);
+        }else if(race== "Bengal")
+        {
+            catToAdd= Object.Instantiate(BengalPrefab, GeneralCanvasObj.transform);
+        }else if(race== "BlueRussian")
+        {
+            catToAdd= Object.Instantiate(BlueRussianPrefab, GeneralCanvasObj.transform);
+        }else if(race== "CottonCandy")
+        {
+            catToAdd= Object.Instantiate(CottonCandyPrefab, GeneralCanvasObj.transform);
+        }else if(race== "EuropeanOrange")
+        {
+            catToAdd= Object.Instantiate(EuropeanOrangePrefab, GeneralCanvasObj.transform);
+        }else if(race== "Munchkin")
+        {
+            catToAdd= Object.Instantiate(MunchkinPrefab, GeneralCanvasObj.transform);
+        }else if(race== "Null")
+        {
+            catToAdd= Object.Instantiate(NullPrefab, GeneralCanvasObj.transform);
+        }else if(race== "Steve")
+        {
+            catToAdd= Object.Instantiate(StevePrefab, GeneralCanvasObj.transform);
+        }
+        catToAdd.transform.SetParent(storing.slotBoxes[slotBoxToParent].transform);
+        storing.catSlots[position] = catToAdd;
+        storing.UpdateCatsPosition();
     }
     private void SelectCatType(int probSpecial,int probShopper, int probHairy)
     {

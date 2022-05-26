@@ -32,7 +32,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     }
     private void Start()
     {
-        Invoke("LoadAd", 0.5f);
+        Invoke("LoadAd", 0);
     }
 
     // If the ad successfully loads, add a listener to the button and enable it:
@@ -64,11 +64,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
-            // Grant a reward.
-
-            Debug.Log("a");
+            // Grant a reward
             rescue.DeleteCatAdded();
-            Debug.Log("b");
             // Load another ad:
             Advertisement.Load(_adUnitId, this);
         }

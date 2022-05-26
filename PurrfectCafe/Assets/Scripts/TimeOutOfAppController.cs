@@ -20,6 +20,7 @@ public class TimeOutOfAppController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
     void Start()
     {
@@ -27,13 +28,13 @@ public class TimeOutOfAppController : MonoBehaviour
         string dateQuitString = PlayerPrefs.GetString("dateQuit", "");
         if (!dateQuitString.Equals(""))
         {
-            DateTime dateQuit= DateTime.Parse(dateQuitString);
+            DateTime dateQuit = DateTime.Parse(dateQuitString);
             DateTime dateNow = DateTime.Now;
 
             if (dateNow > dateQuit)
             {
                 TimeSpan timeSpan = dateNow - dateQuit;
-                Debug.Log("quit for: "+timeSpan.TotalSeconds);
+                Debug.Log("quit for: " + timeSpan.TotalSeconds);
                 timePasedOut = (float)timeSpan.TotalSeconds;
                 Debug.Log("quit for: " + timePasedOut);
                 rescue.ChangeRecueTimeOutsideScreen(timePasedOut);
