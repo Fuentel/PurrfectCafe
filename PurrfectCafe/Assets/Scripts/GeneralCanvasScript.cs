@@ -156,6 +156,8 @@ public class GeneralCanvasScript : MonoBehaviour
         Menu.SetActive(false);
         actualGameScreen = 0;
         ChangeScreen();
+        audioM.Play("Click");
+
     }
     public void ArrowRight()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11224,7 +11224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.45052126}
   m_AnchorMax: {x: 0.93331933, y: 0.88724166}
-  m_AnchoredPosition: {x: -7.7909927, y: 2.5529976}
+  m_AnchoredPosition: {x: -7.7910004, y: 2.5529976}
   m_SizeDelta: {x: 25.939003, y: 4.116001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &648148407
@@ -13247,7 +13247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &922563036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14706,7 +14706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1068865273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14804,8 +14804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18342605, y: 0.6964037}
   m_AnchorMax: {x: 0.81813025, y: 0.7637982}
-  m_AnchoredPosition: {x: -0.5, y: 2}
-  m_SizeDelta: {x: 2.605011, y: 4.9069977}
+  m_AnchoredPosition: {x: -0.5, y: 2.6010132}
+  m_SizeDelta: {x: 2.605, y: 6.108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1091106165
 MonoBehaviour:
@@ -14835,7 +14835,7 @@ MonoBehaviour:
     m_MinSize: 0
     m_MaxSize: 50
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -16244,7 +16244,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b3238cc2d94d5cc4c8e71101c47d4555, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -18118,7 +18118,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 8e8461642d3b896458320b9127806d89, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -21435,7 +21435,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 5eb94485fe3a92b488baf0d3e576c474, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
