@@ -129,13 +129,13 @@ public class UpgradesHandeling : MonoBehaviour
                 }
                 else if (i == 21)
                 {
-                    storing.currentSlots += 9;
+                    UpgradeSlots();
                 }
                 else if (i == 22)
                 {
-                    storing.currentSlots += 9;
+                    UpgradeSlots();
                 }
-                else if (i == 22)
+                else if (i == 23)
                 {
                     UpgradeMoreCoins(0.20f);
                     UpgradeMoreHairballsPerClick(0.20f);

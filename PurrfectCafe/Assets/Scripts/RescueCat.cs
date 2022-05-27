@@ -15,6 +15,7 @@ public class RescueCat : MonoBehaviour
     public Text hairBallsText;
     public Text coinsText;
     public Text timeText;
+    public Text timeLeftText;
     public GenerateRandomCat catgenerator;
     public ManageStoring storing;
     public ResourcesController resources;
@@ -24,6 +25,7 @@ public class RescueCat : MonoBehaviour
     public GameObject NewCatArrived;
     public GameObject Product;
     public GameObject catDuppedToShow;
+    public GameObject RescuingRn;
     public int lastCatadded = -1;
     private AudioManager audioM;
     public SavingManager saver;
@@ -42,10 +44,10 @@ public class RescueCat : MonoBehaviour
         if (timeToRescue1 > 0.0f && rescuing1)
         {
             timeToRescue1 -= Time.deltaTime;
+            RescuingRn.SetActive(true);
         }
         else if(rescuing1 && timeToRescue1 < 0.0f)
         {
-            
             needToActivateButton = true;
             timeToRescue1 = 0.0f;
         }
@@ -59,6 +61,7 @@ public class RescueCat : MonoBehaviour
     {
         lastCatadded=catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
         AlrRescueButton1.SetActive(false);
+        RescuingRn.SetActive(false);
         needToActivateButton = false;
         NewCatArrived.SetActive(true);
         Destroy(catDuppedToShow);
@@ -170,6 +173,7 @@ public class RescueCat : MonoBehaviour
         else
         {
             GenerateProbability();
+            RescuingRn.SetActive(true);
             if (!rescuing1)
             {
                 NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", ((double)timePut)/60);
@@ -253,5 +257,15 @@ public class RescueCat : MonoBehaviour
         hairBallsText.text = hairBalls.ToString();
         coinsText.text = coins.ToString();
         timeText.text = timePut.ToString();
+        timeLeftText.text = "Time Left: "+ConvertToTime(timeToRescue1);
+    }
+    string ConvertToTime(float time)
+    {
+        string text = "";
+
+        int minutes = (int)time / 60;
+        int seconds = (int)(time - (minutes * 60));
+        text = minutes+":"+ seconds;
+        return text;
     }
 }

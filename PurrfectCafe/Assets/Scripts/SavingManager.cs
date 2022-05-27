@@ -224,6 +224,8 @@ public class SavingManager : MonoBehaviour
             resources.coinsNum = PlayerPrefs.GetInt("coins");
             resources.popularityNum = PlayerPrefs.GetInt("popularity");
         }
+
+        Debug.Log("loaded");
     }
     
 }

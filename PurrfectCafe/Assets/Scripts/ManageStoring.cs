@@ -11,10 +11,8 @@ public class ManageStoring : MonoBehaviour
     public int actualStorageScreen = 0;
     public int actualCat = 0;
     public GameObject ClickPanel;
-    public Button Cafe;
-    public Button Nursery;
-    public Button ArrowL;
     public Button ArrowR;
+    public Button ArrowL;
     public bool clickedOnChange;
     public ManageCatPosition manageCats;
     public int currentSlots = 18;
@@ -34,6 +32,7 @@ public class ManageStoring : MonoBehaviour
         slotBoxes[0].SetActive(true);
 
         audioM = FindObjectOfType<AudioManager>();
+        CheckArrowsToActivate();
     }
 
     // Update is called once per frame
@@ -57,10 +56,21 @@ public class ManageStoring : MonoBehaviour
     }
     private void CheckArrowsToActivate()
     {
+       
         if (actualStorageScreen == 0)
         {
             ArrowL.gameObject.SetActive(false);
             ArrowR.gameObject.SetActive(true);
+        }
+        else if (currentSlots == 18 && actualStorageScreen==1)
+        {
+            ArrowL.gameObject.SetActive(true);
+            ArrowR.gameObject.SetActive(false);
+        }
+        else if (currentSlots == 27 && actualStorageScreen==2)
+        {
+            ArrowL.gameObject.SetActive(true);
+            ArrowR.gameObject.SetActive(false);
         }
         else if (actualStorageScreen == 3)
         {
@@ -234,8 +244,7 @@ public class ManageStoring : MonoBehaviour
         catSlots[actualCat] = null;
         UpdateCatsPosition();
         ClickPanel.SetActive(false);
-        Nursery.gameObject.SetActive(true);
-        Cafe.gameObject.SetActive(true);
+        CheckArrowsToActivate();
         audioM.Play("Click");
         saver.SaveData();
     }
@@ -253,8 +262,7 @@ public class ManageStoring : MonoBehaviour
     {
         clickedOnChange = false;
         ClickPanel.SetActive(false);
-        Nursery.gameObject.SetActive(true);
-        Cafe.gameObject.SetActive(true);
+        CheckArrowsToActivate();
 
         audioM.Play("Click");
     }
@@ -274,8 +282,8 @@ public class ManageStoring : MonoBehaviour
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
-            Nursery.gameObject.SetActive(true);
-            Cafe.gameObject.SetActive(true);
+            ArrowL.gameObject.SetActive(true);
+            ArrowR.gameObject.SetActive(true);
 
             Debug.Log("Clicked on" + actualCat);
             Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen)));
@@ -284,8 +292,8 @@ public class ManageStoring : MonoBehaviour
         {
 
             ClickPanel.SetActive(true);
-            Nursery.gameObject.SetActive(false);
-            Cafe.gameObject.SetActive(false);
+            ArrowL.gameObject.SetActive(false);
+            ArrowR.gameObject.SetActive(false);
             actualCat = index + (9 * actualStorageScreen);
             Debug.Log("actualCar" + (index + (9 * actualStorageScreen)));
         };
