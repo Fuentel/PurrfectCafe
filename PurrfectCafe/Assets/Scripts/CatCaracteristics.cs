@@ -20,10 +20,10 @@ public class CatCaracteristics : MonoBehaviour
     public GameObject[] Hats;
     public int actualHat;
     private float slotScale= 0.2f;
-    private float suppScale= 1.3f;
+    private float suppScale= 0.2f;
     private float rescueScale= 1;
     private float catSpaceScale=0.9f;
-    private float cofeSpaceScale=0.7f;
+    private float cofeSpaceScale=0.2f;
 
 
     // Start is called before the first frame update

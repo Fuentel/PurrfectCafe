@@ -135,7 +135,7 @@ public class CafeController : MonoBehaviour
         {
             if (storing.catSlots[i+5] != null)
             {
-                dupCats[i] = Object.Instantiate(storing.catSlots[i+5], catSpaces[i].transform);
+                dupCats[i] = Object.Instantiate(storing.catSlots[i+5], this.transform);
                 dupCats[i].transform.position = new Vector3(catSpaces[i].transform.position.x, catSpaces[i].transform.position.y-heightOutofFurniture, catSpaces[i].transform.position.z);
                 dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToShop();
                 dupCats[i].SetActive(true);

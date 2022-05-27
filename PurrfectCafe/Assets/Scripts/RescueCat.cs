@@ -26,6 +26,7 @@ public class RescueCat : MonoBehaviour
     public GameObject Product;
     public GameObject catDuppedToShow;
     public GameObject RescuingRn;
+    public Button rescueBtt;
     public int lastCatadded = -1;
     private AudioManager audioM;
     public SavingManager saver;
@@ -55,6 +56,14 @@ public class RescueCat : MonoBehaviour
         {
             AlrRescueButton1.SetActive(true);
             saver.SaveData();
+        }
+        if (rescuing1)
+        {
+            rescueBtt.interactable = false;
+        }
+        else
+        {
+            rescueBtt.interactable = true;
         }
     }
     public void AlreadyRescueButton1()

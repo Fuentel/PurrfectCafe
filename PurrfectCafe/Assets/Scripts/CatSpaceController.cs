@@ -9,6 +9,7 @@ public class CatSpaceController : MonoBehaviour
     public ManageStoring storing;
     public GameObject[] dupCats;
     public GameObject[] catSpaces;
+    public GameObject[] suppSpaces;
     public float upgradeMultiplier = 1;
     public float upgradeMainMultiplier = 1;
     public float upgradeSuppMultiplier = 1;
@@ -68,15 +69,17 @@ public class CatSpaceController : MonoBehaviour
         {
             if (storing.catSlots[i] != null)
             {
+
                 dupCats[i] = Object.Instantiate(storing.catSlots[i], catSpaces[i].transform);
-                dupCats[i].transform.position = catSpaces[i].transform.position;
                 if (i == 0)
                 {
                     dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToNursery();
+                    dupCats[i].transform.position = catSpaces[i].transform.position;
                 }
                 else
                 {
                     dupCats[i].GetComponent<CatCaracteristics>().ChangeScaleToSupp();
+                    dupCats[i].transform.position = suppSpaces[i - 1].transform.position;
                 }
                 dupCats[i].SetActive(true);
             }
