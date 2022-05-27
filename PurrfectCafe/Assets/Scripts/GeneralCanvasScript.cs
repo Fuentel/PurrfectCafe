@@ -97,6 +97,8 @@ public class GeneralCanvasScript : MonoBehaviour
             Upgrades.SetActive(false);
             Shop.SetActive(false);
             IAP.SetActive(false);
+            storingScript.clickedOnChange = false;
+            storingScript.ClickPanel.SetActive(false);
         }
         else if (actualGameScreen == 2)
         {
