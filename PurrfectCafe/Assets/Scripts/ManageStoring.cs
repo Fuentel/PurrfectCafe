@@ -246,6 +246,7 @@ public class ManageStoring : MonoBehaviour
         ClickPanel.SetActive(false);
         CheckArrowsToActivate();
         audioM.Play("Click");
+        audioM.Play("Meow1");
         saver.SaveData();
     }
     public void ReleaseACatOutsideThisScreen(int catPos)
@@ -282,18 +283,18 @@ public class ManageStoring : MonoBehaviour
             clickedOnChange = false;
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
-            ArrowL.gameObject.SetActive(true);
-            ArrowR.gameObject.SetActive(true);
+            CheckArrowsToActivate();
 
             Debug.Log("Clicked on" + actualCat);
             Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen)));
+
+            audioM.Play("Meow3");
         }
         else
         {
 
             ClickPanel.SetActive(true);
-            ArrowL.gameObject.SetActive(false);
-            ArrowR.gameObject.SetActive(false);
+            CheckArrowsToActivate();
             actualCat = index + (9 * actualStorageScreen);
             Debug.Log("actualCar" + (index + (9 * actualStorageScreen)));
         };
