@@ -53,11 +53,11 @@ public class ManageStoring : MonoBehaviour
     {
         CatCaracteristics ourCaracteristics = catSlots[catNum].GetComponent<CatCaracteristics>();
         CatAbility ourAbility = catSlots[catNum].GetComponent<CatAbility>();
-        DescriptionCaracteristicsText.text = "Race:"+ ourCaracteristics.race+
+        DescriptionCaracteristicsText.text = "Race: "+ ourCaracteristics.race+
             "\nHairballs: " + ourCaracteristics.HairBallPerClick + 
             "\nSupp Hairballs: " +ourCaracteristics.HairBallPerClickSupp+
             "\nCoins: " + ourCaracteristics.CoinsPerSecond+
-            "\nPopularity" + ourCaracteristics.Popularity;
+            "\nPopularity: " + ourCaracteristics.Popularity;
         DescriptionNameText.text = ourCaracteristics.catName;
         DescriptionText.text = ourAbility.DescriptionCat;
         DescriptionAbilityText.text = ourAbility.DescriptionCatAbility;
