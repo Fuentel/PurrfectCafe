@@ -8,6 +8,9 @@ public class RescueCat : MonoBehaviour
     private int hairBalls = 50;
     private int coins = 50;
     private float timePut = 300.0f;
+    private int maxHairBalls = 50000;
+    private int maxCoins = 50000;
+    private float maxTimePut = 172800.0f;//two days
     public float timeToRescue1;
     public Vector3Int probabilityCatRescue1;
     public bool rescuing1;
@@ -122,7 +125,11 @@ public class RescueCat : MonoBehaviour
     }
     public void IncreaseHairBalls()
     {
-        hairBalls += 50;
+
+        if (hairBalls > maxHairBalls)//clamp
+        {
+            hairBalls = maxHairBalls;
+        }
         audioM.Play("Click");
     }
     public void DecreaseHairBalls()
@@ -137,6 +144,10 @@ public class RescueCat : MonoBehaviour
     public void IncreaseCoins()
     {
         coins += 50;
+        if (coins > maxCoins)//clamp
+        {
+            coins = maxCoins;
+        }
         audioM.Play("Click");
     }
     public void DecreaseCoins()
@@ -150,13 +161,48 @@ public class RescueCat : MonoBehaviour
     }
     public void IncreaseTime()
     {
-        timePut += 30;
+        if (timePut < 500)
+        {
+            timePut += 30;
+        }
+        else if(timePut < 2000)
+        {
+            timePut += 120;
+        }
+        else if (timePut < 10000)
+        {
+            timePut += 360;
+        }
+        else
+        {
+            timePut += 1440;
+        }
+        if (timePut > maxTimePut)//clamp
+        {
+            timePut = maxTimePut;
+        }
+
         audioM.Play("Click");
     }
     public void DecreaseTime()
     {
-        timePut -= 30;
-        if (timePut < 30)
+        if (timePut < 500)
+        {
+            timePut -= 30;
+        }
+        else if (timePut < 2000)
+        {
+            timePut -= 120;
+        }
+        else if (timePut < 10000)
+        {
+            timePut -= 360;
+        }
+        else
+        {
+            timePut -= 1440;
+        }
+        if (timePut < 30)//clamp
         {
             timePut = 30.0f;
         }
@@ -206,11 +252,18 @@ public class RescueCat : MonoBehaviour
     }
     Vector3Int CalculateProbability()
     {
-        int probH = 0;
-        int probC = 0;
-        int probS = 0;
+        int probHTotal = hairBalls/maxHairBalls*100;
+        int probCTotal = coins/maxCoins*100;
+        int probSTotal = (int)(timePut/maxTimePut*100);
 
-        if ((hairBalls - coins) <50 && (hairBalls-coins)>0)
+        int totalProb = probHTotal + probCTotal + probSTotal;
+
+        int probH = probHTotal / totalProb * 100;
+        int probC = probCTotal / totalProb * 100;
+        int probS = probSTotal / totalProb * 100;
+
+        #region probabilidades antiguas
+        /*if ((hairBalls - coins) <50 && (hairBalls-coins)>0)
         {
             probH = 50;
             probC = 40;
@@ -258,7 +311,8 @@ public class RescueCat : MonoBehaviour
             probH = 25;
             probC = 25;
             probS = 50;
-        }
+        }*/
+        #endregion
 
         Vector3Int prob =new Vector3Int(probS, probC, probH);
         return prob;
