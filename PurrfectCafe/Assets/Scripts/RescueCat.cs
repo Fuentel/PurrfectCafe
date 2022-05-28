@@ -7,9 +7,9 @@ public class RescueCat : MonoBehaviour
 {
     private int hairBalls = 50;
     private int coins = 50;
-    private float timePut = 300.0f;
-    private int maxHairBalls = 50000;
-    private int maxCoins = 50000;
+    public float timePut = 300.0f;
+    private int maxHairBalls = 5000;
+    private int maxCoins = 5000;
     private float maxTimePut = 172800.0f;//two days
     public float timeToRescue1;
     public Vector3Int probabilityCatRescue1;
@@ -252,69 +252,30 @@ public class RescueCat : MonoBehaviour
     }
     Vector3Int CalculateProbability()
     {
-        int probHTotal = hairBalls/maxHairBalls*100;
-        int probCTotal = coins/maxCoins*100;
-        int probSTotal = (int)(timePut/maxTimePut*100);
+        int probH;
+        int probC;
+        float probHTotal = (hairBalls/maxHairBalls)*100;
+        float probCTotal = (coins/maxCoins)*100;
+        float probSTotal = (timePut/maxTimePut)*100;
 
-        int totalProb = probHTotal + probCTotal + probSTotal;
+        int probS = (int)((probHTotal + probCTotal + probSTotal)/3);
 
-        int probH = probHTotal / totalProb * 100;
-        int probC = probCTotal / totalProb * 100;
-        int probS = probSTotal / totalProb * 100;
-
-        #region probabilidades antiguas
-        /*if ((hairBalls - coins) <50 && (hairBalls-coins)>0)
+        int restProb = 100 - probS;
+        if(probHTotal >= probCTotal)
         {
-            probH = 50;
-            probC = 40;
-            probS = 10;
+            float difference = (probHTotal - probCTotal) * (restProb/100);
+            probH = (int)(restProb * 0.5f + difference);
+            probC = restProb - probH;
         }
-        else if((hairBalls - coins) > 50 && (hairBalls - coins) < 150)
+        else
         {
-            probH = 60;
-            probC = 20;
-            probS = 20;
-        }
-        else if((hairBalls - coins) > 150)
-        {
-            probH = 80;
-            probC = 0;
-            probS = 20;
-        }
-        if ((coins - hairBalls) < 50 && (coins - hairBalls) > 0)
-        {
-            probH = 40;
-            probC = 50;
-            probS = 10;
-        }
-        else if ((coins - hairBalls) > 50 && (coins - hairBalls) < 150)
-        {
-            probH = 20;
-            probC = 60;
-            probS = 20;
-        }
-        else if ((coins - hairBalls) > 150)
-        {
-            probH = 0;
-            probC = 80;
-            probS = 20;
+            float difference = (probCTotal - probHTotal) * (restProb / 100);
+            probC = (int)(restProb * 0.5f + difference);
+            probH = restProb - probC;
         }
 
-        if (hairBalls==coins)
-        {
-            probH = 40;
-            probC = 40;
-            probS = 10;
-        }
-        if (timePut>300 && (hairBalls - coins) < 50)
-        {
-            probH = 25;
-            probC = 25;
-            probS = 50;
-        }*/
-        #endregion
 
-        Vector3Int prob =new Vector3Int(probS, probC, probH);
+        Vector3Int prob =new Vector3Int((int)probS, (int)probC, (int)probH);
         return prob;
     }
     void UpdateText()

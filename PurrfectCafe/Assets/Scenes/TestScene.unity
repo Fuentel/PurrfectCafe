@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9883,7 +9883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &501018569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12900,7 +12900,8 @@ MonoBehaviour:
   DescriptionSlot: {fileID: 872958444}
   DescriptionText: {fileID: 1995722325}
   DescriptionCaracteristicsText: {fileID: 1552072667}
-  DescriptionNameText: {fileID: 1554451117}
+  DescriptionNameText: {fileID: 450299539}
+  DescriptionPlaceHolderText: {fileID: 1554451117}
   DescriptionAbilityText: {fileID: 1103336638}
   ArrowR: {fileID: 2110551089}
   ArrowL: {fileID: 1682787017}
@@ -13030,6 +13031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7eeb7350187d1b4ca8b6c1366e86f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timePut: 300
   timeToRescue1: 0
   probabilityCatRescue1: {x: 0, y: 0, z: 0}
   rescuing1: 0
@@ -13409,7 +13411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &922563036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14460,7 +14462,7 @@ MonoBehaviour:
       - m_Target: {fileID: 871231151}
         m_TargetAssemblyTypeName: ManageStoring, Assembly-CSharp
         m_MethodName: ChangeNameCat
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15023,7 +15025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1068865273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16880,7 +16882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1201075748
 RectTransform:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class ManageStoring : MonoBehaviour
     public Text DescriptionText;
     public Text DescriptionCaracteristicsText;
     public Text DescriptionNameText;
+    public Text DescriptionPlaceHolderText;
     public Text DescriptionAbilityText;
     public Button ArrowR;
     public Button ArrowL;
@@ -26,6 +27,7 @@ public class ManageStoring : MonoBehaviour
     private AudioManager audioM;
     public int currentHat = -1;
     public SavingManager saver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +60,9 @@ public class ManageStoring : MonoBehaviour
             "\nSupp Hairballs: " +ourCaracteristics.HairBallPerClickSupp+
             "\nCoins: " + ourCaracteristics.CoinsPerSecond+
             "\nPopularity: " + ourCaracteristics.Popularity;
+        Debug.Log(ourCaracteristics.catName);
         DescriptionNameText.text = ourCaracteristics.catName;
+        DescriptionPlaceHolderText.text = ourCaracteristics.catName;
         DescriptionText.text = ourAbility.DescriptionCat;
         DescriptionAbilityText.text = ourAbility.DescriptionCatAbility;
     }
@@ -355,9 +359,9 @@ public class ManageStoring : MonoBehaviour
         }
         return returned;
     }
-    public void ChangeNameCat(string input)
+    public void ChangeNameCat()
     {
-        catSlots[actualCat].GetComponent<CatCaracteristics>().catName = input;
+        catSlots[actualCat].GetComponent<CatCaracteristics>().catName = DescriptionNameText.text;
         saver.SaveData();
     }
 }
