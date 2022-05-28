@@ -9969,8 +9969,22 @@ MonoBehaviour:
   StevePrefab: {fileID: 8355805083528435627, guid: 9a78d709b5c975c4391e62f1e0f766be, type: 3}
   MunchkinPrefab: {fileID: 7020173733488585105, guid: 05e7af05fa3da3d40a22e911ba4d5877, type: 3}
   NullPrefab: {fileID: 8776862534356575929, guid: f9a9804f57614024f9e4c42f31a84b61, type: 3}
+  PersaPrefab: {fileID: 8355805083528435627, guid: db95247ee1a41c543a293fcdee4b0c92, type: 3}
   storing: {fileID: 871231151}
   GeneralCanvasObj: {fileID: 871231145}
+  HairyArray:
+  - {fileID: 7361852656521697586, guid: 7bd6e6642368b82438fcc1c2f2f7fbb0, type: 3}
+  - {fileID: 6113924829475218251, guid: d41b3297afe6bdb439e36fd3185836ae, type: 3}
+  - {fileID: 8355805083528435627, guid: db95247ee1a41c543a293fcdee4b0c92, type: 3}
+  - {fileID: 8735922951412266577, guid: 3b18e45e8b321c64da07e5ce1c192bee, type: 3}
+  ShopperArray:
+  - {fileID: 7554878980311080833, guid: 2dc9c3e63996a5c419694b76b7b2078f, type: 3}
+  - {fileID: 8702485074636485735, guid: ccaafc831a69978489918fe52184d82b, type: 3}
+  - {fileID: 7020173733488585105, guid: 05e7af05fa3da3d40a22e911ba4d5877, type: 3}
+  SpecialArray:
+  - {fileID: 2123482466160034837, guid: ab522233c51d95d4b8cfddb0fd955e17, type: 3}
+  - {fileID: 8776862534356575929, guid: f9a9804f57614024f9e4c42f31a84b61, type: 3}
+  - {fileID: 8355805083528435627, guid: 9a78d709b5c975c4391e62f1e0f766be, type: 3}
 --- !u!1 &509362337
 GameObject:
   m_ObjectHideFlags: 0

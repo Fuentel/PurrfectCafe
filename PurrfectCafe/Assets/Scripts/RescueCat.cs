@@ -8,8 +8,8 @@ public class RescueCat : MonoBehaviour
     private int hairBalls = 50;
     private int coins = 50;
     public float timePut = 300.0f;
-    private int maxHairBalls = 5000;
-    private int maxCoins = 5000;
+    private int maxHairBalls = 3000;
+    private int maxCoins = 3000;
     private float maxTimePut = 172800.0f;//two days
     public float timeToRescue1;
     public Vector3Int probabilityCatRescue1;
@@ -36,8 +36,6 @@ public class RescueCat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-
         audioM = FindObjectOfType<AudioManager>();
     }
 
@@ -55,7 +53,7 @@ public class RescueCat : MonoBehaviour
             needToActivateButton = true;
             timeToRescue1 = 0.0f;
         }
-        if (needToActivateButton)
+        if (needToActivateButton && !AlrRescueButton1.activeInHierarchy)
         {
             AlrRescueButton1.SetActive(true);
             saver.SaveData();
@@ -86,23 +84,17 @@ public class RescueCat : MonoBehaviour
     {
         if (lastCatadded != -1)
         {
-            Debug.Log("empezamos");
             storing.ReleaseACatOutsideThisScreen(lastCatadded);
-            Debug.Log("CatReleased2");
             if (rescuing1)
             {
 
-                Debug.Log("if");
                 Destroy(catDuppedToShow);
-                Debug.Log("catDestroyedDupped");
                 catDuppedToShow = null;
                 lastCatadded = catgenerator.GenerateAnspecificCat(probabilityCatRescue1.x, probabilityCatRescue1.y, probabilityCatRescue1.z);
-                Debug.Log("generateCat");
                 catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
                 catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
                 catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
                 catDuppedToShow.GetComponent<CatCaracteristics>().Hats[catDuppedToShow.GetComponent<CatCaracteristics>().actualHat].SetActive(false);
-                Debug.Log("putCat");
             }
         }
 
@@ -125,7 +117,7 @@ public class RescueCat : MonoBehaviour
     }
     public void IncreaseHairBalls()
     {
-
+        hairBalls += 50;
         if (hairBalls > maxHairBalls)//clamp
         {
             hairBalls = maxHairBalls;
@@ -202,9 +194,9 @@ public class RescueCat : MonoBehaviour
         {
             timePut -= 1440;
         }
-        if (timePut < 30)//clamp
+        if (timePut < 60)//clamp
         {
-            timePut = 30.0f;
+            timePut = 60.0f;
         }
         audioM.Play("Click");
     }
@@ -259,7 +251,9 @@ public class RescueCat : MonoBehaviour
         float probSTotal = (timePut/maxTimePut)*100;
 
         int probS = (int)((probHTotal + probCTotal + probSTotal)/3);
-
+        Debug.Log("probHTotal" + probHTotal + "   probCTotal" + probCTotal + "probSTotal" + probSTotal);
+        Debug.Log("Special"+probS);
+        Debug.Log(((probHTotal + probCTotal + probSTotal) / 3));
         int restProb = 100 - probS;
         if(probHTotal >= probCTotal)
         {
@@ -274,16 +268,17 @@ public class RescueCat : MonoBehaviour
             probH = restProb - probC;
         }
 
-
         Vector3Int prob =new Vector3Int((int)probS, (int)probC, (int)probH);
+        Debug.Log(prob);
         return prob;
     }
     void UpdateText()
     {
         hairBallsText.text = hairBalls.ToString();
         coinsText.text = coins.ToString();
-        timeText.text = timePut.ToString();
+        timeText.text = ConvertToTime(timePut);
         timeLeftText.text = "Time Left: "+ConvertToTime(timeToRescue1);
+
     }
     string ConvertToTime(float time)
     {

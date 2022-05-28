@@ -18,9 +18,7 @@ public class BengalAbility : CatAbility
     }
     public override void AbilityOfTheCat()
     {
-        Debug.Log("Hair Bengal" + this.GetComponent<CatCaracteristics>().CoinsPerSecond);
         this.GetComponent<CatCaracteristics>().HairBallPerClick += (int)(this.GetComponent<CatCaracteristics>().HairBallPerClick * 0.5f);
-        Debug.Log("Hair Bengal" + this.GetComponent<CatCaracteristics>().CoinsPerSecond);
         this.GetComponent<CatCaracteristics>().abilittyDone = true;
     }
 }

@@ -13,8 +13,13 @@ public class GenerateRandomCat : MonoBehaviour
     public GameObject StevePrefab;
     public GameObject MunchkinPrefab;
     public GameObject NullPrefab;
+    public GameObject PersaPrefab;
     public ManageStoring storing;
     public GameObject GeneralCanvasObj;
+
+    public GameObject[] HairyArray;
+    public GameObject[] ShopperArray;
+    public GameObject[] SpecialArray;
 
     private GameObject CatToPass;
     private int typeOfCat = 0;
@@ -93,6 +98,7 @@ public class GenerateRandomCat : MonoBehaviour
     }
     private void SelectCatType(int probSpecial,int probShopper, int probHairy)
     {
+        Debug.Log("S"+probSpecial+" C"+ probShopper+"  H"+ probHairy);
         int randomNum = Random.Range(0,100);
         if (randomNum < probSpecial)
         {
@@ -115,85 +121,74 @@ public class GenerateRandomCat : MonoBehaviour
         switch (typeOfCat)
         {
             case 0:
-                numCat = SpecialCat(ranNum);
-                switch (numCat)
-                {
-                    case 0:
-                        CatToPass = Object.Instantiate(SiamesPrefab, GeneralCanvasObj.transform);
-                        break;
-                    case 1:
-                        CatToPass = Object.Instantiate(BlueRussianPrefab, GeneralCanvasObj.transform);
-                        break;
-                    case 2:
-                        CatToPass = Object.Instantiate(EuropeanOrangePrefab, GeneralCanvasObj.transform);
-                        break;
-                    default:
-                        break;
-                }
+                CatToPass = SpecialCat(ranNum);
                 break;
             case 1:
-                numCat = ShopperCat(ranNum);
-                switch (numCat)
-                {
-                    case 0:
-                        CatToPass = Object.Instantiate(CottonCandyPrefab, GeneralCanvasObj.transform);
-                        break;
-                    default:
-                        break;
-                }
+                CatToPass = ShopperCat(ranNum);
                 break;
             case 2:
-                numCat = HairyCat(ranNum);
-                switch (numCat)
-                {
-                    case 0:
-                        CatToPass = Object.Instantiate(BengalPrefab, GeneralCanvasObj.transform);
-                        break;
-                    default:
-                        break;
-                }
+                CatToPass = HairyCat(ranNum);
                 break;
             default:
                 break;
         } 
     }
-    int SpecialCat(float rNum)
+    GameObject SpecialCat(float rNum)
     {
+        Debug.Log("Special");
         int numCat = 0;
-        if (rNum < SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
+        float prob = 0;
+        for (int i=0; i < SpecialArray.Length; i++)
         {
-            numCat = 0;
+            Debug.Log(i);
+            prob += SpecialArray[i].GetComponent<CatCaracteristics>().probOfObtainning;
+            if (rNum <= prob)
+            {
+                Debug.Log("ha pasau "+i);
+                numCat = i;
+                break;
+            }
         }
-        else if (rNum < BlueRussianPrefab.GetComponent<CatCaracteristics>().probOfObtainning + SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
-        {
-            numCat = 1;
-        }
-        else if(rNum <= EuropeanOrangePrefab.GetComponent<CatCaracteristics>().probOfObtainning + BlueRussianPrefab.GetComponent<CatCaracteristics>().probOfObtainning + SiamesPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
-        {
-            numCat = 2;
-        }
-
-        return numCat;
+        GameObject pass = Object.Instantiate(SpecialArray[numCat], GeneralCanvasObj.transform);
+        return pass;
     }
-    int ShopperCat(float rNum)
+    GameObject ShopperCat(float rNum)
     {
+        Debug.Log("Shopper");
         int numCat = 0;
-        if (rNum < CottonCandyPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
+        float prob = 0;
+        for (int i = 0; i < ShopperArray.Length; i++)
         {
-            numCat = 0;
+            Debug.Log( i);
+            prob += ShopperArray[i].GetComponent<CatCaracteristics>().probOfObtainning;
+            if (rNum <= prob)
+            {
+                Debug.Log("ha pasau " + i);
+                numCat = i;
+                break;
+            }
         }
-
-        return numCat;
+        GameObject pass = Object.Instantiate(ShopperArray[numCat], GeneralCanvasObj.transform);
+        return pass;
     }
-    int HairyCat(float rNum)
+    GameObject HairyCat(float rNum)
     {
+        Debug.Log("Hairy");
         int numCat = 0;
-        if (rNum < BengalPrefab.GetComponent<CatCaracteristics>().probOfObtainning)
+        float prob = 0;
+        for (int i = 0; i < HairyArray.Length; i++)
         {
-            numCat = 0;
+            Debug.Log(i);
+            prob += HairyArray[i].GetComponent<CatCaracteristics>().probOfObtainning;
+            if (rNum <= prob)
+            {
+                Debug.Log("ha pasau " + i);
+                numCat = i;
+                break;
+            }
         }
-
-        return numCat;
+        GameObject pass = Object.Instantiate(HairyArray[numCat], GeneralCanvasObj.transform);
+        return pass;
     }
 
 }
