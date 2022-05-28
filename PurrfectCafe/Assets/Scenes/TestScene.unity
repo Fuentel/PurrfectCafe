@@ -6997,82 +6997,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183225174}
   m_CullTransparentMesh: 1
---- !u!1 &202723441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 202723442}
-  - component: {fileID: 202723444}
-  - component: {fileID: 202723443}
-  m_Layer: 5
-  m_Name: InAppPurchases
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &202723442
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202723441}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 434519050}
-  m_Father: {fileID: 472603484}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &202723443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202723441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &202723444
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202723441}
-  m_CullTransparentMesh: 1
 --- !u!1 &211957921
 GameObject:
   m_ObjectHideFlags: 0
@@ -9250,13 +9174,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824816809}
-  m_Father: {fileID: 202723442}
-  m_RootOrder: 0
+  m_Father: {fileID: 2109275702}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.34875003, y: 0.46332815}
-  m_AnchorMax: {x: 0.65000004, y: 0.5741094}
-  m_AnchoredPosition: {x: -1.2890015, y: -1.3119965}
-  m_SizeDelta: {x: 2.296997, y: 11.828003}
+  m_AnchorMin: {x: 0.32625, y: 0.0338125}
+  m_AnchorMax: {x: 0.6725, y: 0.122187495}
+  m_AnchoredPosition: {x: -0.2749939, y: -2.276001}
+  m_SizeDelta: {x: 4.8479996, y: 5.2769775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434519051
 MonoBehaviour:
@@ -9738,7 +9662,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 202723442}
   - {fileID: 2109275702}
   - {fileID: 2042896877}
   - {fileID: 721951388}
@@ -9903,7 +9826,7 @@ RectTransform:
   - {fileID: 729992816}
   - {fileID: 1029402568}
   m_Father: {fileID: 472603484}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9970,6 +9893,7 @@ MonoBehaviour:
   MunchkinPrefab: {fileID: 7020173733488585105, guid: 05e7af05fa3da3d40a22e911ba4d5877, type: 3}
   NullPrefab: {fileID: 8776862534356575929, guid: f9a9804f57614024f9e4c42f31a84b61, type: 3}
   PersaPrefab: {fileID: 8355805083528435627, guid: db95247ee1a41c543a293fcdee4b0c92, type: 3}
+  MainCoonPrefab: {fileID: 7554878980311080833, guid: ad67a447c7771534aa06bd9f48e87f41, type: 3}
   storing: {fileID: 871231151}
   GeneralCanvasObj: {fileID: 871231145}
   HairyArray:
@@ -9981,6 +9905,7 @@ MonoBehaviour:
   - {fileID: 7554878980311080833, guid: 2dc9c3e63996a5c419694b76b7b2078f, type: 3}
   - {fileID: 8702485074636485735, guid: ccaafc831a69978489918fe52184d82b, type: 3}
   - {fileID: 7020173733488585105, guid: 05e7af05fa3da3d40a22e911ba4d5877, type: 3}
+  - {fileID: 7554878980311080833, guid: ad67a447c7771534aa06bd9f48e87f41, type: 3}
   SpecialArray:
   - {fileID: 2123482466160034837, guid: ab522233c51d95d4b8cfddb0fd955e17, type: 3}
   - {fileID: 8776862534356575929, guid: f9a9804f57614024f9e4c42f31a84b61, type: 3}
@@ -11623,7 +11548,7 @@ RectTransform:
   - {fileID: 2066583285}
   - {fileID: 1201075748}
   m_Father: {fileID: 472603484}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12943,7 +12868,6 @@ MonoBehaviour:
   Shop: {fileID: 2109275701}
   Menu: {fileID: 922563035}
   Game: {fileID: 472603483}
-  IAP: {fileID: 202723441}
   storingScript: {fileID: 871231151}
   catSpace: {fileID: 2042896878}
   cafeController: {fileID: 2109275705}
@@ -15058,7 +14982,7 @@ RectTransform:
   - {fileID: 1435592567}
   - {fileID: 1205567665}
   m_Father: {fileID: 472603484}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23342,7 +23266,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: 'Increase Popularity
+
+'
 --- !u!222 &1824816811
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24685,7 +24611,7 @@ RectTransform:
   - {fileID: 707917064}
   - {fileID: 1639244940}
   m_Father: {fileID: 472603484}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25241,8 +25167,9 @@ RectTransform:
   - {fileID: 1923555121}
   - {fileID: 926043638}
   - {fileID: 1748755979}
+  - {fileID: 434519050}
   m_Father: {fileID: 472603484}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25311,7 +25238,7 @@ MonoBehaviour:
   lastTotalPopularity: 0
   furniturePopularity: 0
   totalCoins: 0
-  heightOutofFurniture: 0
+  heightOutofFurniture: 7
   Toy:
   - {fileID: 1696197619}
   actualToy: 0

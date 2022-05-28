@@ -17,9 +17,8 @@ public class SteveAbility : CatAbility
     }
     void Start()
     {
-        DescriptionCat = "Steve Description";
-        DescriptionCatAbility = "Steve Ability";
-
+        DescriptionCat = "Description: You could stare at these cats’ eyes for years and still see new things, their eyeballs are like a space in miniature.";
+        DescriptionCatAbility = "Negative-Meow:When both this cat and its counterpart are in the café a strange energy surrounds them.This cat gains 150 % more hairballs when Anti-Steven is in the Cafe.";
     }
 
     // Update is called once per frame

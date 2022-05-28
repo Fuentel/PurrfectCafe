@@ -494,7 +494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.455828, y: -2.2865205}
+  m_AnchoredPosition: {x: 17.45581, y: -2.286499}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4855497019348125900
@@ -556,7 +556,7 @@ MonoBehaviour:
   Abilitty: 1
   abilittyDone: 0
   TypeOfCat: Shopper
-  probOfObtainning: 35
+  probOfObtainning: 25
   Nursery: 0
   Shop: 0
   Storing: 1

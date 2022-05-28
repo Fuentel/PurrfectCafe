@@ -124,8 +124,6 @@ public class SavingManager : MonoBehaviour
                 
                 PlayerPrefs.SetString("Cat" + i, storing.catSlots[i].GetComponent<CatCaracteristics>().race);
                 PlayerPrefs.SetString("CatName" + i, storing.catSlots[i].GetComponent<CatCaracteristics>().catName);
-                Debug.Log(PlayerPrefs.GetString("CatName" + i));
-                Debug.Log(i);
             }
             else
             {
@@ -172,9 +170,7 @@ public class SavingManager : MonoBehaviour
                 {
                     string catRace=PlayerPrefs.GetString("Cat" + i);
                     ramCat.AddACatInPosition(catRace,i);
-                    Debug.Log(PlayerPrefs.GetString("CatName" + i));
                     storing.catSlots[i].GetComponent<CatCaracteristics>().catName = PlayerPrefs.GetString("CatName" + i);
-                    Debug.Log(storing.catSlots[i].GetComponent<CatCaracteristics>().catName);
                 }
             }
             if (storing.currentHat != -1)

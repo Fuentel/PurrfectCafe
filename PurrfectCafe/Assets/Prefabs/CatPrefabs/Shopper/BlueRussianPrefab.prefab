@@ -555,7 +555,7 @@ MonoBehaviour:
   Abilitty: 0
   abilittyDone: 0
   TypeOfCat: Shopper
-  probOfObtainning: 40
+  probOfObtainning: 30
   Nursery: 0
   Shop: 0
   Storing: 1

@@ -14,6 +14,7 @@ public class GenerateRandomCat : MonoBehaviour
     public GameObject MunchkinPrefab;
     public GameObject NullPrefab;
     public GameObject PersaPrefab;
+    public GameObject MainCoonPrefab;
     public ManageStoring storing;
     public GameObject GeneralCanvasObj;
 
@@ -91,6 +92,12 @@ public class GenerateRandomCat : MonoBehaviour
         }else if(race== "Steve")
         {
             catToAdd= Object.Instantiate(StevePrefab, GeneralCanvasObj.transform);
+        }else if(race== "Persa")
+        {
+            catToAdd= Object.Instantiate(PersaPrefab, GeneralCanvasObj.transform);
+        }else if(race== "MainCoon")
+        {
+            catToAdd= Object.Instantiate(MainCoonPrefab, GeneralCanvasObj.transform);
         }
         catToAdd.transform.SetParent(storing.slotBoxes[slotBoxToParent].transform);
         storing.catSlots[position] = catToAdd;

@@ -16,8 +16,8 @@ public class AntiSteveAbility : CatAbility
     }
     void Start()
     {
-        DescriptionCat = "Anti Steve Description";
-        DescriptionCatAbility = "Anti Steve Ability";
+        DescriptionCat = "Description: Sometime these cats are mistake as cars lights because of their almost total reflection of light.";
+        DescriptionCatAbility = "Positive-Meow:When both this cat and its counterpart are in the café a strange energy surrounds them.This cat gains 150 % more hairballs when Steven is in the Nursery.";
     }
 
     // Update is called once per frame

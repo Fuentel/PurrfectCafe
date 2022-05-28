@@ -8,8 +8,8 @@ public class CottonCandyAbility : CatAbility
 
     void Start()
     {
-        DescriptionCat = "Candy Steve Description";
-        DescriptionCatAbility = "Candy Steve Ability";
+        DescriptionCat = "Description: Even though its name is a typical sweet for your palate, don’t try to eat this cat or you will end with a few fury sweeps in your face. ";
+        DescriptionCatAbility = "Bubbly Cute: People are more prone to buy special coffee when this cat is in the shop. This cat generates 50% more coins";
     }
     // Update is called once per frame
     void Update()
@@ -18,9 +18,7 @@ public class CottonCandyAbility : CatAbility
     }
     public override void AbilityOfTheCat()
     {
-        Debug.Log("Coins candy" + this.GetComponent<CatCaracteristics>().CoinsPerSecond);
         this.GetComponent<CatCaracteristics>().CoinsPerSecond += (int)(this.GetComponent<CatCaracteristics>().CoinsPerSecond *0.5f);
-        Debug.Log("Coins candy" + this.GetComponent<CatCaracteristics>().CoinsPerSecond);
         this.GetComponent<CatCaracteristics>().abilittyDone = true;
     }
 }

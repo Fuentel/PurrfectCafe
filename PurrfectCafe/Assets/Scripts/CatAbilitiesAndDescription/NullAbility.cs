@@ -25,8 +25,8 @@ public class NullAbility : CatAbility
     void Start()
     {
 
-        DescriptionCat = "Null Steve Description";
-        DescriptionCatAbility = "Null Steve Ability";
+        DescriptionCat = "Description: You are not sure where this cat came from, but you are at least sure that they have a home now, also they sometime make weirds funny sounds.";
+        DescriptionCatAbility = "404 Kitten Not Found: When staring at this cat strange things occur, try not keep them safe before something happen. When this cat is in screen it will generate 100 hairballs and coins after some time. ";
     }
     // Update is called once per frame
     void Update()
