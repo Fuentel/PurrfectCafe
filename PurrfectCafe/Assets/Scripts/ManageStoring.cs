@@ -338,11 +338,14 @@ public class ManageStoring : MonoBehaviour
         {
 
             ClickPanel.SetActive(true);
-            DescriptionPanel.SetActive(true);
             CheckArrowsToActivate();
             actualCat = index + (9 * actualStorageScreen);
-            UpdateTextDescription(actualCat);
-            DupCatToDescription(actualCat);
+            if (catSlots[actualCat] != null)
+            {
+                DescriptionPanel.SetActive(true);
+                UpdateTextDescription(actualCat);
+                DupCatToDescription(actualCat);
+            }
         };
         audioM.Play("Click");
     }

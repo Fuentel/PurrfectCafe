@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 3243325451512628845}
   - component: {fileID: 2958634893608440967}
   - component: {fileID: 2798476996654294833}
+  - component: {fileID: -6627740985425711545}
   - component: {fileID: 1855940555927937082}
   m_Layer: 5
   m_Name: PersaPrefab
@@ -614,6 +615,18 @@ MonoBehaviour:
   - {fileID: 839206527747612285}
   - {fileID: 2889935258247428008}
   actualHat: 0
+--- !u!114 &-6627740985425711545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355805083528435627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116fb9f1e4913cb4ebee6ec51bc5aea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1855940555927937082
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 5786285585615770074}
   - component: {fileID: 7599394072669966301}
   - component: {fileID: 7630791371276063029}
+  - component: {fileID: 140601783914580282}
   - component: {fileID: 5399640856089957223}
   m_Layer: 5
   m_Name: MainCoonPrefab
@@ -534,6 +535,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &140601783914580282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554878980311080833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9ab6d85b5d08548b1bbc6e1719b21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5399640856089957223
 MonoBehaviour:
   m_ObjectHideFlags: 0
