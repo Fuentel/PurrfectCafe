@@ -77,6 +77,7 @@ public class RescueCat : MonoBehaviour
         catDuppedToShow = null;
         catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
         catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
+        catDuppedToShow.GetComponent<CatCaracteristics>().Hats[catDuppedToShow.GetComponent<CatCaracteristics>().actualHat].SetActive(false);
     }
     public void DeleteCatAdded()
     {
@@ -96,7 +97,8 @@ public class RescueCat : MonoBehaviour
                 Debug.Log("generateCat");
                 catDuppedToShow = Object.Instantiate(storing.catSlots[lastCatadded], Product.transform);
                 catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
-
+                catDuppedToShow.GetComponent<CatCaracteristics>().ChangeScaleToRescue();
+                catDuppedToShow.GetComponent<CatCaracteristics>().Hats[catDuppedToShow.GetComponent<CatCaracteristics>().actualHat].SetActive(false);
                 Debug.Log("putCat");
             }
         }

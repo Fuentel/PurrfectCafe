@@ -129,11 +129,11 @@ public class UpgradesHandeling : MonoBehaviour
                 }
                 else if (i == 21)
                 {
-                    UpgradeSlots();
+                    storing.currentSlots = 27;
                 }
                 else if (i == 22)
                 {
-                    UpgradeSlots();
+                    storing.currentSlots = 36;
                 }
                 else if (i == 23)
                 {
@@ -171,10 +171,6 @@ public class UpgradesHandeling : MonoBehaviour
     void UpgradeFurniturePopularity(float sum)
     {
         cafe.upgradeCoins += sum;
-    }
-    void UpgradeSlots()
-    {
-        storing.currentSlots += 9;
     }
     
 }

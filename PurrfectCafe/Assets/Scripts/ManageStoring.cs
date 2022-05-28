@@ -10,7 +10,14 @@ public class ManageStoring : MonoBehaviour
     public GameObject[] slotBoxes;
     public int actualStorageScreen = 0;
     public int actualCat = 0;
+    public GameObject catToDup;
     public GameObject ClickPanel;
+    public GameObject DescriptionPanel;
+    public GameObject DescriptionSlot;
+    public Text DescriptionText;
+    public Text DescriptionCaracteristicsText;
+    public Text DescriptionNameText;
+    public Text DescriptionAbilityText;
     public Button ArrowR;
     public Button ArrowL;
     public bool clickedOnChange;
@@ -23,6 +30,8 @@ public class ManageStoring : MonoBehaviour
     void Start()
     {
         ClickPanel.SetActive(false);
+        DescriptionPanel.SetActive(false);
+        DestroyCatToDup();
         clickedOnChange = false;
         
         for (int i = 0; i < slotBoxes.Length; i++)
@@ -40,6 +49,29 @@ public class ManageStoring : MonoBehaviour
     {
         
     }
+    void UpdateTextDescription(int catNum)
+    {
+        CatCaracteristics ourCaracteristics = catSlots[catNum].GetComponent<CatCaracteristics>();
+        CatAbility ourAbility = catSlots[catNum].GetComponent<CatAbility>();
+        DescriptionCaracteristicsText.text = "Race:"+ ourCaracteristics.race+
+            "\nHairballs: " + ourCaracteristics.HairBallPerClick + 
+            "\nSupp Hairballs: " +ourCaracteristics.HairBallPerClickSupp+
+            "\nCoins: " + ourCaracteristics.CoinsPerSecond+
+            "\nPopularity" + ourCaracteristics.Popularity;
+        DescriptionNameText.text = ourCaracteristics.catName;
+        DescriptionText.text = ourAbility.DescriptionCat;
+        DescriptionAbilityText.text = ourAbility.DescriptionCatAbility;
+    }
+    void DupCatToDescription(int catNum)
+    {
+        catToDup= Object.Instantiate(catSlots[catNum],this.transform);
+        catToDup.transform.position = DescriptionSlot.transform.position;
+    }
+    void DestroyCatToDup()
+    {
+        Destroy(catToDup);
+        catToDup = null;
+    }
     public void UpdateHats(int numHat)
     {
         currentHat = numHat;
@@ -47,7 +79,10 @@ public class ManageStoring : MonoBehaviour
         {
             if (catSlots[i] != null)
             {
-                catSlots[i].GetComponent<CatCaracteristics>().Hats[catSlots[i].GetComponent<CatCaracteristics>().actualHat].SetActive(false);
+                if (catSlots[i].GetComponent<CatCaracteristics>().actualHat != -1)
+                {
+                    catSlots[i].GetComponent<CatCaracteristics>().Hats[catSlots[i].GetComponent<CatCaracteristics>().actualHat].SetActive(false);
+                }
                 catSlots[i].GetComponent<CatCaracteristics>().Hats[numHat].SetActive(true);
                 catSlots[i].GetComponent<CatCaracteristics>().actualHat = numHat;
             }
@@ -130,19 +165,19 @@ public class ManageStoring : MonoBehaviour
             {
                 if (i < 9)
                 {
-                    catSlots[i].transform.parent = slotBoxes[0].transform;
+                    catSlots[i].transform.SetParent(slotBoxes[0].transform);
                 }
                 else if (i < 18)
                 {
-                    catSlots[i].transform.parent = slotBoxes[1].transform;
+                    catSlots[i].transform.SetParent(slotBoxes[1].transform);
                 }
                 else if (i < 27)
                 {
-                    catSlots[i].transform.parent = slotBoxes[2].transform;
+                    catSlots[i].transform.SetParent(slotBoxes[2].transform);
                 }
                 else if (i < 36)
                 {
-                    catSlots[i].transform.parent = slotBoxes[3].transform;
+                    catSlots[i].transform.SetParent(slotBoxes[3].transform);
                 }
                 switch (i % 9)
                 {
@@ -199,7 +234,6 @@ public class ManageStoring : MonoBehaviour
         {
             manageCats.ChangeCoinCat3(catSlots[7]);
         }
-
     }
     public int AddACat(GameObject catToAdd)
     {
@@ -225,7 +259,7 @@ public class ManageStoring : MonoBehaviour
                 {
                     slotBoxToParent = 3;
                 }
-                catToAdd.transform.parent = slotBoxes[slotBoxToParent].transform;
+                catToAdd.transform.SetParent(slotBoxes[slotBoxToParent].transform);
                 catSlots[i] = catToAdd;
                 position = i;
                 break;
@@ -240,6 +274,9 @@ public class ManageStoring : MonoBehaviour
     }
     public void ClickOnRelease()
     {
+        DescriptionPanel.SetActive(false);
+        DestroyCatToDup();
+        clickedOnChange = false;
         Destroy(catSlots[actualCat]);
         catSlots[actualCat] = null;
         UpdateCatsPosition();
@@ -263,6 +300,9 @@ public class ManageStoring : MonoBehaviour
     {
         clickedOnChange = false;
         ClickPanel.SetActive(false);
+        DescriptionPanel.SetActive(false);
+        DestroyCatToDup();
+
         CheckArrowsToActivate();
 
         audioM.Play("Click");
@@ -270,6 +310,8 @@ public class ManageStoring : MonoBehaviour
     public void ClickOnChange()
     {
         clickedOnChange = true;
+        DescriptionPanel.SetActive(false);
+        DestroyCatToDup();
         audioM.Play("Click");
     }
     public void ClickOnCatSlot(int index)
@@ -284,9 +326,7 @@ public class ManageStoring : MonoBehaviour
             UpdateCatsPosition();
             ClickPanel.SetActive(false);
             CheckArrowsToActivate();
-
-            Debug.Log("Clicked on" + actualCat);
-            Debug.Log("actual cat 2:" + (index + (9 * actualStorageScreen)));
+            saver.SaveData();
 
             audioM.Play("Meow3");
         }
@@ -294,9 +334,11 @@ public class ManageStoring : MonoBehaviour
         {
 
             ClickPanel.SetActive(true);
+            DescriptionPanel.SetActive(true);
             CheckArrowsToActivate();
             actualCat = index + (9 * actualStorageScreen);
-            Debug.Log("actualCar" + (index + (9 * actualStorageScreen)));
+            UpdateTextDescription(actualCat);
+            DupCatToDescription(actualCat);
         };
         audioM.Play("Click");
     }
@@ -312,5 +354,10 @@ public class ManageStoring : MonoBehaviour
             }
         }
         return returned;
+    }
+    public void ChangeNameCat(string input)
+    {
+        catSlots[actualCat].GetComponent<CatCaracteristics>().catName = input;
+        saver.SaveData();
     }
 }

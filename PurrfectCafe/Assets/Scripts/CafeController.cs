@@ -9,10 +9,11 @@ public class CafeController : MonoBehaviour
     public UpgradesHandeling upgrades;
     public ManageStoring storing;
     public SavingManager saver;
-    public float upgradeCoins=1;
-    public float upgradeFurniture=1;
-    public float upgradePopularity=1;
+    public float upgradeCoins = 1;
+    public float upgradeFurniture = 1;
+    public float upgradePopularity = 1;
     public float totalPopularity = 0.0f;
+    public float lastTotalPopularity = 0.0f;
     public float furniturePopularity = 0.0f;
     public float totalCoins = 0.0f;
     public float heightOutofFurniture = 0.0f;
@@ -34,8 +35,17 @@ public class CafeController : MonoBehaviour
     void Update()
     {
         UpdatePopularityAndCoins();
-        
+        UpdateResourcesPopularity();
     }
+    void UpdateResourcesPopularity()
+    {
+        if(lastTotalPopularity != totalPopularity)
+        {
+            resources.popularityNum += (int)totalPopularity - (int)lastTotalPopularity;
+            lastTotalPopularity = totalPopularity;
+        }
+    }
+
     void UpdatePopularityAndCoins()
     {
         UpdateFurniturePopularity();

@@ -57,9 +57,7 @@ public class SavingManager : MonoBehaviour
         PlayerPrefs.SetInt("coins", resources.coinsNum);
         PlayerPrefs.SetInt("popularity", resources.popularityNum);
         //tiempo rescate
-        Debug.Log(rescue.timeToRescue1);
         PlayerPrefs.SetFloat("rescuingTime", rescue.timeToRescue1);
-        Debug.Log(PlayerPrefs.GetFloat("rescuingTime"));
         if (rescue.rescuing1)
         {
             PlayerPrefs.SetInt("rescuing?", 1);
@@ -123,7 +121,10 @@ public class SavingManager : MonoBehaviour
         {
             if(storing.catSlots[i]!= null)
             {
+                
                 PlayerPrefs.SetString("Cat" + i, storing.catSlots[i].GetComponent<CatCaracteristics>().race);
+                PlayerPrefs.SetString("CatName" + i, storing.catSlots[i].GetComponent<CatCaracteristics>().catName);
+                Debug.Log(PlayerPrefs.GetString("CatName" + i));
             }
             else
             {
@@ -171,6 +172,9 @@ public class SavingManager : MonoBehaviour
                 {
                     string catRace=PlayerPrefs.GetString("Cat" + i);
                     ramCat.AddACatInPosition(catRace,i);
+                    Debug.Log(PlayerPrefs.GetString("CatName" + i));
+                    storing.catSlots[i].GetComponent<CatCaracteristics>().catName = PlayerPrefs.GetString("CatName" + i);
+                    Debug.Log(storing.catSlots[i].GetComponent<CatCaracteristics>().catName);
                 }
             }
             if (storing.currentHat != -1)

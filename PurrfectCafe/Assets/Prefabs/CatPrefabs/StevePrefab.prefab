@@ -259,7 +259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.22500001, y: 0.623}
   m_AnchorMax: {x: 0.574, y: 0.80300003}
-  m_AnchoredPosition: {x: -1, y: -0.18000793}
+  m_AnchoredPosition: {x: -1, y: -0.17999268}
   m_SizeDelta: {x: 11.552597, y: 2.9267883}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5987091755377363022
@@ -467,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5531622399398644193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 2958634893608440967}
   - component: {fileID: 2798476996654294833}
   - component: {fileID: 1855940555927937082}
+  - component: {fileID: 4155833855377565852}
   m_Layer: 5
   m_Name: StevePrefab
   m_TagString: Untagged
@@ -552,8 +553,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8355805083528435627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 5531622399398644193}
   - {fileID: 1589291169423168081}
@@ -568,7 +569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.0375977}
+  m_AnchoredPosition: {x: 17.455828, y: -21.479702}
   m_SizeDelta: {x: 0, y: -8.27121}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2958634893608440967
@@ -591,18 +592,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595a2834976458643ac86934387cca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catName: 
+  catName: Steve
   race: Steve
-  HairBallPerClick: 2
+  HairBallPerClick: 20
   HairBallPerClickSupp: 0
-  CoinsPerSecond: 15
-  Popularity: 6
+  CoinsPerSecond: 2
+  Popularity: 60
   Abilitty: 1
-  TypeOfCat: Shopper
+  abilittyDone: 0
+  TypeOfCat: Special
   probOfObtainning: 100
   Nursery: 0
   Shop: 0
-  Storing: 0
+  Storing: 1
   Hats:
   - {fileID: 7120029995806160726}
   - {fileID: 9016994617967470059}
@@ -643,6 +645,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4155833855377565852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355805083528435627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509cf1e49a8824046bba8ba7ad157cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storing: {fileID: 0}
+  aux: []
+  generalCanvas: {fileID: 0}
 --- !u!1 &9016994617967470059
 GameObject:
   m_ObjectHideFlags: 0

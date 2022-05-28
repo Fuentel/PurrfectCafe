@@ -92,7 +92,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1478725593809599521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -477,8 +477,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7554878980311080833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 1478725593809599521}
   - {fileID: 204232252960769729}
@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.045627322}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.5}
+  m_AnchoredPosition: {x: 17.293447, y: 16.847588}
   m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7599394072669966301
@@ -546,18 +546,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595a2834976458643ac86934387cca92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catName: 
+  catName: BlueRussian
   race: BlueRussian
   HairBallPerClick: 5
   HairBallPerClickSupp: 0
   CoinsPerSecond: 10
-  Popularity: 5
+  Popularity: 50
   Abilitty: 0
-  TypeOfCat: Standard
+  abilittyDone: 0
+  TypeOfCat: Shopper
   probOfObtainning: 40
   Nursery: 0
   Shop: 0
-  Storing: 0
+  Storing: 1
   Hats:
   - {fileID: 1204132693885198106}
   - {fileID: 2920186688935078796}

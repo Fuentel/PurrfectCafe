@@ -12,6 +12,7 @@ public class CatCaracteristics : MonoBehaviour
     public int CoinsPerSecond;
     public int Popularity;
     public bool Abilitty;
+    public bool abilittyDone=false;
     public string TypeOfCat;
     public float probOfObtainning;//0 100
     public bool Nursery=false;
@@ -24,17 +25,26 @@ public class CatCaracteristics : MonoBehaviour
     private float rescueScale= 1;
     private float catSpaceScale=0.9f;
     private float cofeSpaceScale=0.2f;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        if (Abilitty)
+        {
+            this.GetComponent<CatAbility>().AbilityOfTheCat();
+        }
         HairBallPerClickSupp = HairBallPerClick / 4 +1;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Abilitty && !abilittyDone)
+        {
+            this.GetComponent<CatAbility>().AbilityOfTheCat();
+        }
     }
     public void ChangeScaleToNursery()
     {
