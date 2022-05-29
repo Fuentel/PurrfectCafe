@@ -46,11 +46,13 @@ public class RescueCat : MonoBehaviour
     void Update()
     {
 
-        if (saver.loaded&&!timeCalculated)
+        if (saver.loaded && !timeCalculated)
         {
+            Debug.Log("old" + timeToRescue1);
             timeToRescue1 -= timeCtrl.timePasedOut;
             timeCtrl.timePasedOut = 0;
             timeCalculated = true;
+            Debug.Log("new time"+timeToRescue1);
         }
         UpdateText();
         if (timeToRescue1 > 0.0f && rescuing1)
