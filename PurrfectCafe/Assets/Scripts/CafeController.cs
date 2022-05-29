@@ -94,7 +94,10 @@ public class CafeController : MonoBehaviour
         {
             Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numChair].GetComponent<FurnitureCaracteristics>().Popularity;
         }
-        Chair[actualChair].SetActive(false);
+        for (int i = 0; i < Chair.Length; i++)
+        {
+            Chair[i].SetActive(false);
+        }
         actualChair = numChair;
         Chair[actualChair].SetActive(true);
 
@@ -109,7 +112,10 @@ public class CafeController : MonoBehaviour
         {
             Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numToy].GetComponent<FurnitureCaracteristics>().Popularity;
         }
-        Toy[actualToy].SetActive(false);
+        for(int i = 0; i < Toy.Length; i++)
+        {
+            Toy[i].SetActive(false);
+        }
         actualToy = numToy;
         Toy[actualToy].SetActive(true);
         if (saver.loaded)
@@ -123,7 +129,10 @@ public class CafeController : MonoBehaviour
         {
             Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numPlant].GetComponent<FurnitureCaracteristics>().Popularity;
         }
-        Plant[actualPlant].SetActive(false);
+        for (int i = 0; i < Plant.Length; i++)
+        {
+            Plant[i].SetActive(false);
+        }
         actualPlant = numPlant;
         Plant[actualPlant].SetActive(true);
         if (saver.loaded)
@@ -137,7 +146,10 @@ public class CafeController : MonoBehaviour
         {
             Chair[actualChair].GetComponent<FurnitureCaracteristics>().Popularity = Chair[numBox].GetComponent<FurnitureCaracteristics>().Popularity;
         }
-        Box[actualBox].SetActive(false);
+        for (int i = 0; i < Box.Length; i++)
+        {
+            Box[i].SetActive(false);
+        }
         actualBox = numBox;
         Box[actualBox].SetActive(true);
         if (saver.loaded)

@@ -506,7 +506,7 @@ MonoBehaviour:
   - {fileID: 3074442146297771535}
   - {fileID: 3010823245583798901}
   - {fileID: 6290570745253108503}
-  actualHat: 0
+  actualHat: 4
 --- !u!1 &6251048758871373804
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2166816886166579945
 RectTransform:
   m_ObjectHideFlags: 0
