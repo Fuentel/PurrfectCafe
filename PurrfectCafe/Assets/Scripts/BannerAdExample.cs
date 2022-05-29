@@ -11,7 +11,8 @@ public class BannerAdExample : MonoBehaviour
     [SerializeField] string _androidAdUnitId = "Banner_Android";
     [SerializeField] string _iOSAdUnitId = "Banner_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms.
-
+    public AdsInitializer ads;
+    public GeneralCanvasScript canvas;
     void Start()
     {
         // Get the Ad Unit ID for the current platform:
@@ -23,9 +24,17 @@ public class BannerAdExample : MonoBehaviour
 
         // Set the banner position:
         Advertisement.Banner.SetPosition(_bannerPosition);
-
+        
         
 
+    }
+    private void Update()
+    {
+        if (ads.loaded && canvas.Menu.activeInHierarchy)
+        {
+            LoadBanner();
+            ShowBannerAd();
+        }
     }
     // Implement a method to call when the Load Banner button is clicked:
     public void LoadBanner()

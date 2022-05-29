@@ -7782,7 +7782,7 @@ MonoBehaviour:
   _androidGameId: 4739543
   _iOSGameId: 4739542
   _testMode: 1
-  banner: {fileID: 258387418}
+  loaded: 0
 --- !u!4 &258387417
 Transform:
   m_ObjectHideFlags: 0
@@ -7812,6 +7812,8 @@ MonoBehaviour:
   _bannerPosition: 4
   _androidAdUnitId: Banner_Android
   _iOSAdUnitId: Banner_iOS
+  ads: {fileID: 258387416}
+  canvas: {fileID: 871231152}
 --- !u!1 &271912787
 GameObject:
   m_ObjectHideFlags: 0
@@ -9099,6 +9101,7 @@ MonoBehaviour:
   ramCat: {fileID: 501018573}
   timeToSave: 60
   timePased: 60
+  loaded: 0
 --- !u!4 &431671704
 Transform:
   m_ObjectHideFlags: 0
@@ -13350,7 +13353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &922563036
 MonoBehaviour:
   m_ObjectHideFlags: 0
