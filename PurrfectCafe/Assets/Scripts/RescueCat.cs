@@ -238,6 +238,7 @@ public class RescueCat : MonoBehaviour
             if (!rescuing1)
             {
                 NotificationManager.CreateNotification("New Cat awaits you!","The new cat is already here, enter the app to welcome it.", ((double)timePut)/60);
+                NotificationManager.CreateNotification("Your cat is half way here!","Don´t you want to prepare the shop before it gets here.", (((double)timePut)/60)/2);
                 timeToRescue1 = timePut;
                 rescuing1 = true;
                 saver.SaveData();
