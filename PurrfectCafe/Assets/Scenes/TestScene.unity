@@ -7782,6 +7782,7 @@ MonoBehaviour:
   _androidGameId: 4739543
   _iOSGameId: 4739542
   _testMode: 1
+  banner: {fileID: 258387418}
 --- !u!4 &258387417
 Transform:
   m_ObjectHideFlags: 0

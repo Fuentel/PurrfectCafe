@@ -8,6 +8,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] bool _testMode = true;
     private string _gameId;
     MyIAPManager iapManager = null;
+    public BannerAdExample banner;
     void Awake()
     {
         InitializeAds();
@@ -25,6 +26,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
+        banner.LoadBanner();
+        banner.ShowBannerAd();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
