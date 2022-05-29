@@ -24,11 +24,9 @@ public class TimeOutOfAppController : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("app Open");
-        string dateQuitString = PlayerPrefs.GetString("dateQuit", "");
-        if (!dateQuitString.Equals(""))
+        if (PlayerPrefs.HasKey("dateQuit"))
         {
-            DateTime dateQuit = DateTime.Parse(dateQuitString);
+            DateTime dateQuit = DateTime.Parse(PlayerPrefs.GetString("dateQuit"));
             DateTime dateNow = DateTime.Now;
 
             if (dateNow > dateQuit)
@@ -39,15 +37,7 @@ public class TimeOutOfAppController : MonoBehaviour
                 Debug.Log("quit for: " + timePasedOut);
                 
             }
-            PlayerPrefs.SetString("dateQuit", "");
         }
-    }
-    private void OnApplicationQuit()
-    {
-        Debug.Log("app Quit");
-        DateTime dateQuit = DateTime.Now;
-        PlayerPrefs.SetString("dateQuit", dateQuit.ToString());
-        Debug.Log(""+dateQuit);
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,6 +59,8 @@ public class SavingManager : MonoBehaviour
         PlayerPrefs.SetInt("coins", resources.coinsNum);
         PlayerPrefs.SetInt("popularity", resources.popularityNum);
         //tiempo rescate
+        DateTime dateQuit = DateTime.Now;
+        PlayerPrefs.SetString("dateQuit", dateQuit.ToString());
         Debug.Log(rescue.timeToRescue1);
         PlayerPrefs.SetFloat("rescuingTime", rescue.timeToRescue1);
         Debug.Log(PlayerPrefs.GetFloat("rescuingTime"));
