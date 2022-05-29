@@ -8,7 +8,7 @@ public class TimeOutOfAppController : MonoBehaviour
     // Start is called before the first frame update
     public static TimeOutOfAppController Instance { get; private set; }
     public float timePasedOut = 0;
-    public RescueCat rescue;
+
     private void Awake()
     {
         if (Instance==null)
@@ -37,8 +37,7 @@ public class TimeOutOfAppController : MonoBehaviour
                 Debug.Log("quit for: " + timeSpan.TotalSeconds);
                 timePasedOut = (float)timeSpan.TotalSeconds;
                 Debug.Log("quit for: " + timePasedOut);
-                rescue.ChangeRecueTimeOutsideScreen(timePasedOut);
-                timePasedOut = 0;
+                
             }
             PlayerPrefs.SetString("dateQuit", "");
         }

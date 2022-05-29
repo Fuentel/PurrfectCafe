@@ -33,15 +33,25 @@ public class RescueCat : MonoBehaviour
     public int lastCatadded = -1;
     private AudioManager audioM;
     public SavingManager saver;
+    public TimeOutOfAppController timeCtrl;
+    private bool timeCalculated;
     // Start is called before the first frame update
     void Start()
     {
         audioM = FindObjectOfType<AudioManager>();
+        timeCalculated = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (saver.loaded&&!timeCalculated)
+        {
+            timeToRescue1 -= timeCtrl.timePasedOut;
+            timeCtrl.timePasedOut = 0;
+            timeCalculated = true;
+        }
         UpdateText();
         if (timeToRescue1 > 0.0f && rescuing1)
         {
