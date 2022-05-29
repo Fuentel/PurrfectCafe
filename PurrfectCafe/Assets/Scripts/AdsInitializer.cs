@@ -9,6 +9,7 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     private string _gameId;
     MyIAPManager iapManager = null;
     public BannerAdExample banner;
+    public GeneralCanvasScript canvas;
     void Awake()
     {
         InitializeAds();
@@ -26,8 +27,11 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
-        banner.LoadBanner();
-        banner.ShowBannerAd();
+        if (canvas.Menu.activeInHierarchy)
+        {
+            banner.LoadBanner();
+            banner.ShowBannerAd();
+        }
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)

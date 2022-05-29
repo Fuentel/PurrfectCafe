@@ -91,7 +91,10 @@ public class ManageStoring : MonoBehaviour
                 catSlots[i].GetComponent<CatCaracteristics>().actualHat = numHat;
             }
         }
-        saver.SaveData();
+        if (saver.loaded)
+        {
+            saver.SaveData();
+        }
     }
     private void CheckArrowsToActivate()
     {

@@ -13,6 +13,7 @@ public class SavingManager : MonoBehaviour
     public GenerateRandomCat ramCat;
     public float timeToSave = 60.0f;
     public float timePased = 60.0f;
+    public bool loaded = false;
     //al guardar
     //resources
     //tiempo de rescate
@@ -57,7 +58,9 @@ public class SavingManager : MonoBehaviour
         PlayerPrefs.SetInt("coins", resources.coinsNum);
         PlayerPrefs.SetInt("popularity", resources.popularityNum);
         //tiempo rescate
+        Debug.Log(rescue.timeToRescue1);
         PlayerPrefs.SetFloat("rescuingTime", rescue.timeToRescue1);
+        Debug.Log(PlayerPrefs.GetFloat("rescuingTime"));
         if (rescue.rescuing1)
         {
             PlayerPrefs.SetInt("rescuing?", 1);
@@ -146,6 +149,7 @@ public class SavingManager : MonoBehaviour
     }
     void LoadData()
     {
+        loaded = false;
         if (PlayerPrefs.HasKey("currentSlots"))
         {
             //upgrades
@@ -215,7 +219,9 @@ public class SavingManager : MonoBehaviour
             {
                 rescue.needToActivateButton = false;
             }
+            Debug.Log(PlayerPrefs.GetFloat("rescuingTime"));
             rescue.timeToRescue1=PlayerPrefs.GetFloat("rescuingTime");
+            Debug.Log(rescue.timeToRescue1);
             rescue.probabilityCatRescue1.x=PlayerPrefs.GetInt("probabilityCatRescue1x");
             rescue.probabilityCatRescue1.y=PlayerPrefs.GetInt("probabilityCatRescue1y");
             rescue.probabilityCatRescue1.z=PlayerPrefs.GetInt("probabilityCatRescue1z");
@@ -226,6 +232,7 @@ public class SavingManager : MonoBehaviour
         }
 
         Debug.Log("loaded");
+        loaded = true;
     }
-    
+
 }

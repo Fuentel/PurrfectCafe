@@ -98,7 +98,10 @@ public class CafeController : MonoBehaviour
         actualChair = numChair;
         Chair[actualChair].SetActive(true);
 
-        saver.SaveData();
+        if (saver.loaded)
+        {
+            saver.SaveData();
+        }
     }
     public void ChangeToy(int numToy)
     {
@@ -109,7 +112,10 @@ public class CafeController : MonoBehaviour
         Toy[actualToy].SetActive(false);
         actualToy = numToy;
         Toy[actualToy].SetActive(true);
-        saver.SaveData();
+        if (saver.loaded)
+        {
+            saver.SaveData();
+        }
     }
     public void ChangePlant(int numPlant)
     {
@@ -120,7 +126,10 @@ public class CafeController : MonoBehaviour
         Plant[actualPlant].SetActive(false);
         actualPlant = numPlant;
         Plant[actualPlant].SetActive(true);
-        saver.SaveData();
+        if (saver.loaded)
+        {
+            saver.SaveData();
+        }
     }
     public void ChangeBox(int numBox)
     {
@@ -131,7 +140,10 @@ public class CafeController : MonoBehaviour
         Box[actualBox].SetActive(false);
         actualBox = numBox;
         Box[actualBox].SetActive(true);
-        saver.SaveData();
+        if (saver.loaded)
+        {
+            saver.SaveData();
+        }
     }
     
     public float GainsCoins()

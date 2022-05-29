@@ -37,7 +37,7 @@ public class TimeOutOfAppController : MonoBehaviour
                 Debug.Log("quit for: " + timeSpan.TotalSeconds);
                 timePasedOut = (float)timeSpan.TotalSeconds;
                 Debug.Log("quit for: " + timePasedOut);
-                rescue.ChangeRecueTimeOutsideScreen(timePasedOut);
+                //rescue.ChangeRecueTimeOutsideScreen(timePasedOut);
                 timePasedOut = 0;
             }
             PlayerPrefs.SetString("dateQuit", "");
