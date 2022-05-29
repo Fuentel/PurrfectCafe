@@ -25,7 +25,14 @@ public class UpgradesHandeling : MonoBehaviour
         }
         for (int i = 0; i < UpgradesText.Length; i++)
         {
-            UpgradesText[i].text = "HB: " + UpgradesCost[i].x + " / C: "+ UpgradesCost[i].y;
+            if (!BuyUpgrades[i])
+            {
+                UpgradesText[i].text = "HB: " + UpgradesCost[i].x + " / C: " + UpgradesCost[i].y;
+            }
+            else
+            {
+                UpgradesText[i].text = "SOLD!";
+            }
         }
     }
 
