@@ -9099,8 +9099,8 @@ MonoBehaviour:
   upgrades: {fileID: 871231154}
   canvas: {fileID: 871231152}
   ramCat: {fileID: 501018573}
-  timeToSave: 60
-  timePased: 60
+  timeToSave: 10
+  timePased: 10
   loaded: 0
 --- !u!4 &431671704
 Transform:
@@ -9454,7 +9454,7 @@ GameObject:
   - component: {fileID: 450299540}
   - component: {fileID: 450299539}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InputText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12843,8 +12843,7 @@ MonoBehaviour:
   DescriptionSlot: {fileID: 872958444}
   DescriptionText: {fileID: 1995722325}
   DescriptionCaracteristicsText: {fileID: 1552072667}
-  DescriptionNameText: {fileID: 450299539}
-  DescriptionPlaceHolderText: {fileID: 1554451117}
+  Inputfield: {fileID: 1031645341}
   DescriptionAbilityText: {fileID: 1103336638}
   ArrowR: {fileID: 2110551089}
   ArrowL: {fileID: 1682787017}
@@ -12890,7 +12889,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timePasedOut: 0
-  rescue: {fileID: 871231155}
 --- !u!114 &871231154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12995,6 +12993,7 @@ MonoBehaviour:
   rescueBtt: {fileID: 1237039853}
   lastCatadded: -1
   saver: {fileID: 431671703}
+  timeCtrl: {fileID: 871231153}
 --- !u!1 &872958444
 GameObject:
   m_ObjectHideFlags: 0

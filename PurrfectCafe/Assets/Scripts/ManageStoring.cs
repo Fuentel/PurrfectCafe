@@ -16,8 +16,7 @@ public class ManageStoring : MonoBehaviour
     public GameObject DescriptionSlot;
     public Text DescriptionText;
     public Text DescriptionCaracteristicsText;
-    public Text DescriptionNameText;
-    public Text DescriptionPlaceHolderText;
+    public InputField Inputfield;
     public Text DescriptionAbilityText;
     public Button ArrowR;
     public Button ArrowL;
@@ -60,9 +59,7 @@ public class ManageStoring : MonoBehaviour
             "\nSupp Hairballs: " +ourCaracteristics.HairBallPerClickSupp+
             "\nCoins: " + ourCaracteristics.CoinsPerSecond+
             "\nPopularity: " + ourCaracteristics.Popularity;
-        Debug.Log(ourCaracteristics.catName);
-        DescriptionNameText.text = ourCaracteristics.catName;
-        DescriptionPlaceHolderText.text = ourCaracteristics.catName;
+        Inputfield.text = ourCaracteristics.catName;
         DescriptionText.text = ourAbility.DescriptionCat;
         DescriptionAbilityText.text = ourAbility.DescriptionCatAbility;
     }
@@ -367,7 +364,7 @@ public class ManageStoring : MonoBehaviour
     }
     public void ChangeNameCat()
     {
-        catSlots[actualCat].GetComponent<CatCaracteristics>().catName = DescriptionNameText.text;
+        catSlots[actualCat].GetComponent<CatCaracteristics>().catName = Inputfield.textComponent.text;
         saver.SaveData();
     }
 }
