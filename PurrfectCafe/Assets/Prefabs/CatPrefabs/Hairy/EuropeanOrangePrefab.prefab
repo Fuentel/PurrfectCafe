@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7399172767848753756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ RectTransform:
   m_GameObject: {fileID: 6113924829475218251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 7399172767848753756}
   - {fileID: 6324604717963651134}
@@ -494,9 +494,9 @@ MonoBehaviour:
   abilittyDone: 0
   TypeOfCat: Hairy
   probOfObtainning: 30
-  Nursery: 0
+  Nursery: 1
   Shop: 0
-  Storing: 1
+  Storing: 0
   Hats:
   - {fileID: 1037713830180591166}
   - {fileID: 6251048758871373804}
@@ -506,7 +506,7 @@ MonoBehaviour:
   - {fileID: 3074442146297771535}
   - {fileID: 3010823245583798901}
   - {fileID: 6290570745253108503}
-  actualHat: 4
+  actualHat: 0
 --- !u!1 &6251048758871373804
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2166816886166579945
 RectTransform:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ RectTransform:
   m_GameObject: {fileID: 2123482466160034837}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 4210234218244334113}
   - {fileID: 3624493599343378713}
@@ -182,9 +182,9 @@ MonoBehaviour:
   abilittyDone: 0
   TypeOfCat: Special
   probOfObtainning: 40
-  Nursery: 0
+  Nursery: 1
   Shop: 0
-  Storing: 1
+  Storing: 0
   Hats:
   - {fileID: 9051592465686479101}
   - {fileID: 2136466379021617579}
@@ -194,7 +194,7 @@ MonoBehaviour:
   - {fileID: 8323863451076850624}
   - {fileID: 415567158648249307}
   - {fileID: 2718478758871652718}
-  actualHat: 4
+  actualHat: 0
 --- !u!114 &-8334428615457803000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2808444945574563365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -677,7 +677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4210234218244334113
 RectTransform:
   m_ObjectHideFlags: 0
